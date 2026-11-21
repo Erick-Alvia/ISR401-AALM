@@ -164,20 +164,34 @@ El uso de una herramienta especializada de gestión de requisitos como TraceClou
 
 \section{Pasos de aplicación}
 Para aplicar TraceCloud en un proyecto de software y permitir que otro equipo reproduzca el procedimiento utilizando la plantilla \textit{Generic}, se sigue la secuencia operativa que se detalla a continuación:
-\begin{enumerate}
-    \item \textbf{Inicio de sesión y creación del proyecto:} iniciar sesión en la cuenta de TraceCloud, crear un nuevo proyecto, seleccionar \textit{TraceCloud (Requirement Management)}, elegir \textit{Predefined template} y seleccionar la opción \textit{Generic}. En el formulario de creación, completar el nombre del proyecto, el código corto de tres letras y la descripción, y confirmar la creación para que el sistema genere carpetas y tipos base (como \textit{Business Requirements}, \textit{Functional Requirements} y \textit{Test Cases}) junto con la vista principal del proyecto \cite{priya2020}.
-  
-
 
 
 \section{Análisis crítico}
-\indic{Valorar la herramienta con fundamento y sin limitarse a describirla: ventajas, límites y alternativas.}
+
+Este apartado valora TraceCloud a partir de las funciones documentadas por el fabricante \cite{priya2020}, de la evaluación independiente de Jira y de aplicaciones de su Marketplace \cite{rozenberga2025} y del marco comparativo de herramientas de requisitos \cite{ozkaya2023}. Cuando una afirmación es una interpretación del equipo y no un dato de la fuente, se indica de forma expresa.
 
 \subsection{Ventajas}
-\indic{Señalar ventajas reales, respaldadas por las fuentes o por la práctica del equipo.}
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Centralización de los requisitos.} El fabricante plantea como problema que los requisitos se dispersan en archivos de Excel y Word sin conexión entre ellos, y propone reunirlos en un solo proyecto \cite{priya2020}. Esto responde a la necesidad de mantener los requisitos organizados y controlados que describe la gestión de requisitos \cite{pohl2025}.
+    \item \textbf{Trazabilidad con diferentes vistas.} Las relaciones entre requisitos se consultan mediante el árbol, la matriz y el diagrama de organización de trazas, y la herramienta señala requisitos \emph{dangling}, \emph{orphan} y \emph{suspect} \cite{priya2020}. Esto ayuda a evaluar el impacto de un cambio, que es el fin de la trazabilidad \cite{pohl2025}.
+    \item \textbf{Control de cambios y aprobación.} Cada versión nueva parte como borrador y pasa por los estados en aprobación, aprobado o rechazado \cite{priya2020}, lo que deja registro de qué requisito fue validado y cuándo.
+    \item \textbf{Control de acceso.} Los permisos se asignan por rol y por carpeta \cite{priya2020}, útil en equipos donde no todos deben modificar todo.
+    \item \textbf{Despliegue flexible.} Está disponible como servicio en la nube o instalada en la infraestructura de la organización \cite{priya2020}.
+\end{itemize}
 
 \subsection{Limitaciones y riesgos documentados}
-\indic{Indicar las limitaciones y los riesgos y citar la fuente de cada uno.}
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Información del fabricante y de 2020.} Las funciones descritas provienen de un documento técnico del propio fabricante, con fecha de 2020 \cite{priya2020}. Existe el riesgo de que la herramienta haya cambiado o de que la descripción sea favorable. Por eso, las funciones citadas en este documento se contrastan con lo comprobado en la demostración (sección de ejemplo propio).
+    \item \textbf{Cobertura parcial del ciclo.} En una evaluación de cuatro aplicaciones del Marketplace de Jira, entre ellas TraceCloud, ninguna ofreció cobertura completa del ciclo de gestión de requisitos \cite{rozenberga2025}. Por eso conviene verificar qué etapas necesita realmente el proyecto antes de adoptarla.
+    \item \textbf{Intercambio de requisitos.} Para ReqIF y Excel/CSV no existe un estándar aceptado por todas las herramientas \cite{ozkaya2023}. En la documentación de TraceCloud se menciona la exportación de matrices a Excel y los informes en Word, pero no la compatibilidad con ReqIF \cite{priya2020}. Migrar requisitos hacia otras herramientas podría requerir trabajo adicional (interpretación del equipo).
+    \item \textbf{No sustituye a la elicitación.} La herramienta trabaja con requisitos ya formulados \cite{priya2020}. Los conocimientos subconscientes e inconscientes de los interesados requieren técnicas de descubrimiento previas \cite{pohl2025,buhne2026}; TraceCloud solo registra y controla lo que esas técnicas produzcan (interpretación del equipo, expuesta en el apartado sobre el tipo de conocimiento).
+    \item \textbf{Configuración previa.} Antes de usarla hay que definir tipos de requisitos, atributos, carpetas y permisos \cite{priya2020}. En proyectos pequeños, ese esfuerzo inicial puede ser mayor que el beneficio (interpretación del equipo).
+    \item \textbf{Calidad de lo registrado.} La trazabilidad solo es útil si las relaciones se mantienen actualizadas; la herramienta marca los requisitos \emph{suspect}, pero la revisión sigue siendo trabajo del equipo \cite{priya2020}.
+\end{itemize}
+
+ 
 
 \subsection{Comparación con al menos otra alternativa (p. ej., Jira o Enterprise Architect)}
 \indic{Comparar con otra herramienta usando criterios claros, por ejemplo en una tabla, y concluir cuál conviene según el caso.}
