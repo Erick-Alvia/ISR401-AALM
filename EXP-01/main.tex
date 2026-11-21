@@ -152,7 +152,15 @@ Las funcionalidades descritas corresponden a la información disponible en la do
 
 
 \section{Cuándo usar la herramienta}
-\indic{Describir las situaciones y condiciones de proyecto en que conviene usarla, con fundamento en las fuentes.}
+El uso de una herramienta especializada de gestión de requisitos como TraceCloud responde a las características, el tamaño y las exigencias de control del proyecto \cite{buhne2026,ozkaya2023}. Con base en la literatura de ingeniería de requerimientos y la documentación técnica de la plataforma, conviene emplear TraceCloud en las siguientes situaciones y condiciones:
+
+\begin{itemize}
+    \item \textbf{Consolidación de requisitos dispersos y crecimiento de volumen:} cuando los requisitos se encuentran repartidos en múltiples archivos de Excel o Word y se necesita centralizarlos en un repositorio único con estructura jerárquica por tipos, carpetas y control de versiones \cite{buhne2026}.
+    \item \textbf{Necesidad de trazabilidad multinivel y análisis de impacto:} en proyectos donde es indispensable vincular requisitos de negocio, requisitos funcionales y casos de prueba para detectar requisitos sin origen (\textit{Orphan}) o sin cobertura (\textit{Dangling}) y evaluar qué elementos se ven afectados ante un cambio (\textit{Suspect Up} / \textit{Suspect Down}) \cite{pohl2025}.
+    \item \textbf{Trabajo colaborativo con roles y permisos diferenciados:} cuando varios perfiles (administradores, analistas, desarrolladores, revisores o aprobadores) participan sobre un mismo proyecto web y se requiere controlar quién puede crear, editar, trazar o aprobar cada carpeta o atributo \cite{ozkaya2023,priya2020}.
+    \item \textbf{Control formal de aprobaciones, líneas base y reportes:} en proyectos que exigen flujos de revisión y aprobación documentados, historial de cambios, captura de líneas base (\textit{Baselines}) y paneles de seguimiento por usuario, carpeta, entrega (\textit{Release}) o proyecto \cite{washizaki2024}.
+    \item \textbf{Reutilización de requisitos entre proyectos o líneas de producto:} cuando una organización desarrolla varios productos o versiones relacionadas y necesita publicar conjuntos aprobados de requisitos compartidos (\textit{Shared \& Global Requirements}) manteniendo la trazabilidad desde su origen \cite{priya2020}.
+\end{itemize}
 
 \section{Pasos de aplicación}
 \indic{Detallar paso a paso cómo se aplica en un proyecto, de forma que otro equipo pueda repetirlo.}
