@@ -131,10 +131,25 @@ TraceCloud es una herramienta para la gestión de requisitos y su trazabilidad. 
 El fabricante parte de un problema frecuente: los requisitos se encuentran distribuidos en varios archivos de Excel y Word, sin conexión entre ellos, lo que dificulta identificar el impacto de un cambio. Como solución, propone reunir los diferentes tipos de requisitos en un solo proyecto, donde puedan relacionarse entre sí. El mismo documento indica que la herramienta está disponible como servicio en la nube y también puede instalarse en la infraestructura de la organización \cite{priya2020}.
 
 \subsection{Funcionalidades relevantes para la ingeniería de requisitos}
-\indic{Enumerar las funciones útiles para la IR (gestión, trazabilidad, intercambio) que se hayan comprobado en la herramienta.}
+
+TraceCloud ofrece varias funciones para apoyar la gestión de requisitos \cite{priya2020}, entre las que se encuentran:
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Tipos de requisitos y atributos.} Permite definir los tipos de requisitos necesarios para cada proyecto y establecer sus respectivos atributos. También permite organizarlos en carpetas y subcarpetas.
+    \item \textbf{Roles y permisos.} Permite asignar permisos según el rol del usuario y la carpeta, como crear, leer, actualizar, eliminar, trazar y aprobar.
+    \item \textbf{Trazabilidad.} Permite relacionar requisitos entre sí y consultar estas relaciones mediante un árbol de trazas (\emph{Trace Tree}), una matriz de trazas (\emph{Trace Matrix}) y un diagrama de organización (\emph{Trace Org Chart}). También identifica requisitos \emph{dangling} (sin trazas descendentes), \emph{orphan} (sin trazas ascendentes) y \emph{suspect} (no sincronizados con un cambio ascendente o descendente).
+    \item \textbf{Versionado y aprobación.} Cada nueva versión de un requisito comienza como borrador y pasa por un proceso de aprobación que incluye los estados en aprobación, aprobado y rechazado.
+    \item \textbf{Líneas base, reportes y tableros.} Ofrece reportes con filtros y tableros por usuario, carpeta, proyecto, versión planificada (\emph{release}) y línea base. También permite generar informes en Word a partir de plantillas.
+    \item \textbf{Requisitos compartidos.} Permite publicar un conjunto de requisitos aprobados como línea base para que puedan utilizarse en otros proyectos.
+\end{itemize}
+
+Respecto al intercambio de requisitos, ReqIF y Excel/CSV son formatos utilizados por distintas herramientas, aunque no existe un estándar aceptado por todas \cite{ozkaya2023}. En el caso de TraceCloud, se menciona la exportación de matrices de trazabilidad a Excel y la generación de informes en Word, pero no se hace referencia a la compatibilidad con ReqIF \cite{priya2020}. Por tanto, no se considera que la herramienta admita este formato.
+
+Las funcionalidades descritas corresponden a la información disponible en la documentación de 2020. Por ello, durante el desarrollo del ejemplo propio se comprobarán aquellas que puedan utilizarse directamente en la herramienta.
 
 \subsection{Relación con el tipo de conocimiento que permite elicitar o gestionar}
-\indic{Indicar qué tipo de conocimiento permite elicitar o gestionar la herramienta y fundamentarlo.}
+
+
 
 \section{Cuándo usar la herramienta}
 \indic{Describir las situaciones y condiciones de proyecto en que conviene usarla, con fundamento en las fuentes.}
