@@ -1,0 +1,131 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{titlesec}
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{referencias.bib}
+
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection.}{0.6em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+\newcommand{\indic}[1]{\par\noindent{\small\itshape #1}\par\medskip}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    {\large \textbf{UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO}}\\[0.2cm]
+    {\large Facultad de Ciencias de la Computación}\\
+    {\large Carrera de Software}\\[0.9cm]
+    {\Large \textbf{INGENIERÍA DE REQUERIMIENTOS}}\\[0.3cm]
+    {\large ISR-401}\\[0.9cm]
+    {\LARGE \textbf{GA-SUM-02}}\\[0.6cm]
+    \rule{0.85\textwidth}{0.5pt}\\[0.3cm]
+    {\large \textbf{EXP-1: Técnicas de elicitación y herramientas automatizadas de apoyo a la IR. Tema 7: Tracecloud}}\\[0.2cm]
+    {\normalsize Grupo: \textbf{AALM}}\\
+    \rule{0.85\textwidth}{0.5pt}\\[0.8cm]
+    \begin{flushleft}
+        \small
+        \textbf{Integrantes:}
+        \begin{itemize}[noitemsep,topsep=2pt]
+            \item Aldas Zambrano Alan Andrés
+            \item Alvia Villegas Erick Adalberto
+            \item Llerena Abril Angelina Julexy
+            \item Moran Pilaguano Frixon Fernando
+        \end{itemize}
+        \vspace{0.1cm}
+        \textbf{Nivel:} Cuarto\\[0.2cm]
+        \textbf{Paralelo:} A\\[0.2cm]
+        \textbf{Docente:} Gleiston Cicerón Guerrero Ulloa, PhD\\[0.2cm]
+        \textbf{Modalidad:} Grupal\\[0.2cm]
+        \textbf{Fecha límite de entrega:} [fecha de la sesión de la semana 4]
+    \end{flushleft}
+    \vfill
+    {\large Quevedo -- Ecuador}\\
+    {\large 2026}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+\indic{Presentar el propósito de GA-SUM-02, el tema asignado (herramientas automatizadas de gestión de requisitos) y el objetivo y alcance de este documento.}
+
+\section{Metodología de la investigación}
+\indic{Indicar las fuentes estudiadas (al menos 3 de la bibliografía de la guía y 1 reciente adicional) y el criterio de selección. Explicar cómo se verificó cada referencia (DOI, autores, año).}
+
+\section{Marco conceptual}
+\indic{Introducir los conceptos base que sustentan el análisis de la herramienta, apoyándose en la bibliografía y citándola.}
+
+\subsection{Elicitación de requisitos}
+\indic{Definir la elicitación y su lugar dentro de la ingeniería de requisitos, con citas de las fuentes consultadas.}
+
+\subsection{Tipos de conocimiento: consciente, inconsciente y subconsciente}
+\indic{Explicar cada tipo de conocimiento y por qué condiciona la elección de técnicas y herramientas, según la bibliografía.}
+
+\subsection{Gestión, trazabilidad e intercambio de requisitos (ReqIF)}
+\indic{Describir qué es gestionar y trazar requisitos y para qué sirve el intercambio ReqIF, solo con lo que respalden las fuentes.}
+
+\section{Tracecloud}
+\indic{Presentar la herramienta elegida y justificar su relación con el tema 7 de la guía.}
+
+\subsection{Definición y propósito}
+\indic{Definir qué es Tracecloud y para qué se usa, con base en su documentación oficial o en fuentes verificables.}
+
+\subsection{Funcionalidades relevantes para la ingeniería de requisitos}
+\indic{Enumerar las funciones útiles para la IR (gestión, trazabilidad, intercambio) que se hayan comprobado en la herramienta.}
+
+\subsection{Relación con el tipo de conocimiento que permite elicitar o gestionar}
+\indic{Indicar qué tipo de conocimiento permite elicitar o gestionar la herramienta y fundamentarlo.}
+
+\section{Cuándo usar la herramienta}
+\indic{Describir las situaciones y condiciones de proyecto en que conviene usarla, con fundamento en las fuentes.}
+
+\section{Pasos de aplicación}
+\indic{Detallar paso a paso cómo se aplica en un proyecto, de forma que otro equipo pueda repetirlo.}
+
+\section{Análisis crítico}
+\indic{Valorar la herramienta con fundamento y sin limitarse a describirla: ventajas, límites y alternativas.}
+
+\subsection{Ventajas}
+\indic{Señalar ventajas reales, respaldadas por las fuentes o por la práctica del equipo.}
+
+\subsection{Limitaciones y riesgos documentados}
+\indic{Indicar las limitaciones y los riesgos y citar la fuente de cada uno.}
+
+\subsection{Comparación con al menos otra alternativa (p. ej., Jira o Enterprise Architect)}
+\indic{Comparar con otra herramienta usando criterios claros, por ejemplo en una tabla, y concluir cuál conviene según el caso.}
+
+\subsection{Cuándo no conviene usarla}
+\indic{Indicar los casos en que no es adecuada y qué alternativa usar en su lugar.}
+
+\section{Ejemplo propio aplicado al caso de práctica}
+\indic{Presentar la demostración aplicada al caso de práctica del equipo. No se acepta un ejemplo copiado de la fuente.}
+
+\subsection{Contexto del caso}
+\indic{Describir el caso (sistema, actores y objetivo) sin incluir datos personales de terceros.}
+
+\subsection{Demostración}
+\indic{Mostrar con figuras propias lo realizado en Tracecloud (capturas, requisitos, trazas) y explicar cada paso.}
+
+\subsection{Artefactos y evidencia en el repositorio}
+\indic{Indicar las rutas de los artefactos en el repositorio y el manifiesto de evidencias (nombre, fecha, duración y SHA-256).}
+
+\section{Conclusiones}
+\indic{Redactar conclusiones que se deriven de lo realizado y de lo analizado, evitando las genéricas.}
+
+\section{Declaración de uso de inteligencia artificial}
+\indic{Indicar herramienta, versión, propósito y cómo se verificó lo obtenido, o declarar expresamente que no se usó IA.}
+
+\section{Aportes por integrante}
+\indic{Elaborar una tabla con las columnas Integrante y Aportes verificables (archivos, secciones, artefactos); sirve para la calificación individual.}
+
+\printbibliography[title={Referencias}]
+
+\end{document}
