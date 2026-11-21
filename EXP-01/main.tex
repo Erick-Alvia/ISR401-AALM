@@ -7,6 +7,9 @@
 \usepackage{csquotes}
 \usepackage{titlesec}
 \usepackage[backend=biber,style=ieee]{biblatex}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
 \addbibresource{referencias.bib}
 
 \titleformat{\section}{\normalfont\large\bfseries}{\thesection.}{0.6em}{}
@@ -64,8 +67,34 @@ El objetivo de este documento es analizar las características y funcionalidades
 
 Para ello, se presentan los conceptos relacionados con la elicitación y la gestión de requisitos, se describe el funcionamiento de la herramienta y se desarrolla una demostración aplicada al caso de práctica del equipo. Finalmente, se realiza un análisis de sus posibilidades de uso en proyectos de software, con el propósito de comprender su aporte dentro del proceso de ingeniería de requerimientos.
 
+
 \section{Metodología de la investigación}
-\indic{Indicar las fuentes estudiadas (al menos 3 de la bibliografía de la guía y 1 reciente adicional) y el criterio de selección. Explicar cómo se verificó cada referencia (DOI, autores, año).}
+
+Para realizar la investigación se revisaron cinco fuentes de la bibliografía indicada en la guía de la actividad. Además, se incluyó una fuente reciente adicional y la documentación del fabricante de la herramienta. Las fuentes utilizadas se presentan en la Tabla~\ref{tab:fuentes}.
+
+\begin{table}[ht]
+\centering
+\small
+\caption{Fuentes estudiadas, origen y uso en el documento.}
+\label{tab:fuentes}
+\begin{tabularx}{\textwidth}{@{}p{2.2cm} p{2.6cm} c p{2.6cm} X@{}}
+\toprule
+\textbf{Fuente} & \textbf{Tipo} & \textbf{Año} & \textbf{Origen} & \textbf{Uso en el documento} \\
+\midrule
+\cite{pohl2025} & Libro & 2025 & Bibliografía de la guía & Fundamentos de la elicitación y de la gestión de requisitos \\
+\cite{buhne2026} & Programa de estudios & 2026 & Bibliografía de la guía & Conceptos base y tipos de conocimiento \\
+\cite{washizaki2024} & Guía de cuerpo de conocimiento & 2024 & Bibliografía de la guía & Marco conceptual de la ingeniería de requisitos \\
+\cite{cheng2026} & Artículo de revista & 2026 & Bibliografía de la guía & IA generativa en la ingeniería de requisitos \\
+\cite{stein2026} & Artículo de revista & 2026 & Bibliografía de la guía & Modelos de lenguaje en el proceso de ingeniería de requisitos \\
+\cite{ozkaya2023} & Artículo de revista & 2023 & Fuente adicional reciente & Comparación de características de herramientas de requisitos \\
+\cite{priya2020} & Documento técnico del fabricante & 2020 & Documentación del fabricante & Descripción de las funciones de TraceCloud \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Las fuentes se seleccionaron considerando cuatro criterios. El primero fue su relación con el tema de la exposición, en este caso, la gestión de requisitos mediante herramientas automatizadas. El segundo fue la actualidad de la información, dando prioridad a publicaciones de los últimos cinco años. Sin embargo, se mantuvo el documento del fabricante de 2020, ya que contiene información sobre las funciones de la herramienta. El tercer criterio fue la confiabilidad de las fuentes, considerando libros académicos, guías especializadas y artículos de revistas. Finalmente, se tomó en cuenta que la información pudiera verificarse en los documentos originales. Debido a su origen, el documento del fabricante \cite{priya2020} se utilizó únicamente para describir las funciones de TraceCloud.
+
+Antes de utilizar cada referencia, se verificaron sus datos bibliográficos, como los autores, el año, el título, la editorial o revista, el volumen, las páginas y el DOI o ISBN, según correspondiera. También se revisó que la información citada estuviera respaldada por la fuente original. En el caso de las fuentes en línea, se consultó el sitio original y se registró la fecha de consulta. Por último, las referencias se organizaron en formato IEEE y se citaron en las partes del documento donde se utilizaron.
 
 \section{Marco conceptual}
 \indic{Introducir los conceptos base que sustentan el análisis de la herramienta, apoyándose en la bibliografía y citándola.}
