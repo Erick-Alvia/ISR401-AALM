@@ -200,13 +200,41 @@ Este apartado valora TraceCloud a partir de las funciones documentadas por el fa
     \item \textbf{Calidad de lo registrado.} La trazabilidad solo es útil si las relaciones se mantienen actualizadas; la herramienta marca los requisitos \emph{suspect}, pero la revisión sigue siendo trabajo del equipo \cite{priya2020}.
 \end{itemize}
 
- 
 
-\subsection{Comparación con al menos otra alternativa (p. ej., Jira o Enterprise Architect)}
-\indic{Comparar con otra herramienta usando criterios claros, por ejemplo en una tabla, y concluir cuál conviene según el caso.}
+\subsection{Comparación con al menos otra alternativa (Jira)}
+
+Jira es una plataforma utilizada principalmente para la gestión de proyectos. Sin embargo, no está diseñada específicamente para la gestión de requisitos y sus funciones en este ámbito son limitadas. Rozenberga y Kirikova evaluaron sus componentes considerando las etapas de elicitación, análisis, especificación, verificación y validación, gestión de cambios y trazabilidad. Los resultados muestran un soporte completo para la identificación de interesados, la evaluación de factibilidad, la priorización y la trazabilidad, mientras que la mayoría de las demás funciones cuentan con soporte parcial. Los autores también señalan que Jira recibe actualizaciones constantes, por lo que estas capacidades pueden cambiar con el tiempo \cite{rozenberga2025}.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Comparación entre TraceCloud y Jira como herramientas de apoyo a la gestión de requisitos.}
+\label{tab:comparacion}
+\begin{tabularx}{\textwidth}{@{}p{3.2cm} X X@{}}
+\toprule
+\textbf{Criterio} & \textbf{TraceCloud} & \textbf{Jira (componentes nativos)} \\
+\midrule
+Propósito & Gestión de requisitos y su trazabilidad \cite{priya2020} & Gestión de proyectos; no está diseñada como un sistema de gestión de requisitos \cite{rozenberga2025} \\
+Cobertura del ciclo de gestión de requisitos & Ofrece funciones para gestionar tipos y atributos, versiones, aprobaciones, reportes y líneas base \cite{priya2020}. Sin embargo, una evaluación independiente encontró que ninguna de las aplicaciones analizadas, incluida TraceCloud, cubría por sí sola todo el ciclo de gestión de requisitos \cite{rozenberga2025} & Soporte completo para la identificación de interesados, la evaluación de factibilidad, la priorización y la trazabilidad; parcial en la mayoría de las demás funciones \cite{rozenberga2025} \\
+Trazabilidad & Incluye árbol, matriz y diagrama de trazas, además de la identificación de requisitos \emph{dangling}, \emph{orphan} y \emph{suspect} \cite{priya2020} & Soporte completo de las funciones de trazabilidad evaluadas \cite{rozenberga2025} \\
+Relación entre ambas & Disponible como aplicación en el Marketplace de Jira \cite{rozenberga2025} & Permite ampliar sus funciones mediante aplicaciones del Marketplace \cite{rozenberga2025} \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{Cuándo no conviene usarla}
-\indic{Indicar los casos en que no es adecuada y qué alternativa usar en su lugar.}
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Proyectos pequeños o de corta duración.} Cuando existen pocos requisitos y no se necesita un proceso formal de aprobación, la configuración inicial de TraceCloud puede resultar innecesaria \cite{priya2020}. \emph{Alternativa:} utilizar una hoja de cálculo o un documento compartido.
+
+    \item \textbf{Fase de descubrimiento de necesidades.} Cuando todavía se están identificando las necesidades de los interesados, TraceCloud no ofrece funciones específicas para descubrirlas \cite{priya2020}. \emph{Alternativa:} utilizar entrevistas, observación o prototipado \cite{pohl2025,buhne2026} y registrar posteriormente los requisitos obtenidos en la herramienta.
+
+    \item \textbf{Intercambio de requisitos mediante ReqIF.} La documentación consultada no menciona la compatibilidad de TraceCloud con este formato \cite{priya2020}, por lo que no sería la opción adecuada si su uso es un requisito del proyecto. \emph{Alternativa:} seleccionar una herramienta que declare compatibilidad con ReqIF \cite{ozkaya2023} o consultar directamente al fabricante.
+
+    \item \textbf{Equipos que solo necesitan seguimiento de tareas.} Cuando se trabaja con pocos requisitos y no se necesita un proceso formal de aprobación, Jira puede ser suficiente, ya que ofrece soporte completo para las funciones de trazabilidad evaluadas \cite{rozenberga2025}. \emph{Alternativa:} utilizar Jira para el seguimiento de tareas y recurrir a TraceCloud cuando se requiera un mayor control de versiones y aprobaciones \cite{priya2020}.
+\end{itemize}
+ 
+
 
 \section{Ejemplo propio aplicado al caso de práctica}
 \indic{Presentar la demostración aplicada al caso de práctica del equipo. No se acepta un ejemplo copiado de la fuente.}
