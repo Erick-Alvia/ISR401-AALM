@@ -24,6 +24,13 @@ ISR401-AALM/
 * Figuras: las capturas están en `EXP-01/Evidencias/` y deben quedar junto a `main.tex`.
 * No usa BibTeX: la lista de referencias IEEE está escrita en las diapositivas finales y coincide con `referencias.bib`.
 
+como primer paso al entrar a consola ejecutar el siguiente comando 
+
+Ejemplo:
+```cd C:\Users\GAMEMAX\OneDrive\Documentos\00_Git\ISR401-AALM\EXP-01```
+
+esto permitirá que al compilar pueda detectar la carpeta y el archivo .tex donde se generara el pdf
+
 En Overleaf: abrir el proyecto, seleccionar `EXP-01/main.tex` y pulsar Recompile.
 En local, desde la raíz del repositorio:
 
