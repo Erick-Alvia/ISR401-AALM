@@ -1,4 +1,4 @@
-# Cómo compilar EXP-1
+# Cómo compilar EXP-01
 
 Diapositivas de la exposición GA-SUM-02 (ISR-401, UTEQ): TraceCloud, gestión y trazabilidad de requisitos (tema 7, equipo AALM, caso Fabro Arriendos).
 
