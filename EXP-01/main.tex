@@ -1,88 +1,3 @@
-\begin{filecontents*}{referencias.bib}
-@book{pohl2025,
-  author    = {Pohl, Klaus},
-  title     = {Requirements Engineering: Fundamentals, Principles, and Techniques},
-  edition   = {2},
-  publisher = {Springer},
-  address   = {Berlin, Heidelberg, Germany},
-  year      = {2025},
-  isbn      = {978-3-662-69204-2}
-}
-
-@techreport{buhne2026,
-  author      = {B{\"u}hne, Stan and Glinz, Martin},
-  title       = {{IREB} Certified Professional for Requirements Engineering --- Foundation Level Syllabus, Version 3.3.0},
-  type        = {Technical report},
-  institution = {International Requirements Engineering Board (IREB) e.V.},
-  address     = {Karlsruhe, Germany},
-  year        = {2026},
-  note        = {Released 2026-04-01}
-}
-
-@book{washizaki2024,
-  editor    = {Washizaki, Hironori},
-  title     = {Guide to the Software Engineering Body of Knowledge ({SWEBOK} Guide), Version 4.0},
-  publisher = {IEEE Computer Society},
-  address   = {Los Alamitos, CA, USA},
-  year      = {2024}
-}
-
-@article{ozkaya2023,
-  author  = {Ozkaya, Mert and Kardas, Geylani and Kose, Mehmet Alp},
-  title   = {An Analysis of the Features of Requirements Engineering Tools},
-  journal = {Systems},
-  volume  = {11},
-  number  = {12},
-  eid     = {576},
-  year    = {2023},
-  doi     = {10.3390/systems11120576}
-}
-
-@article{cheng2026,
-  author  = {Cheng, Haowei and Husen, Jati H. and Lu, Yijun and Racharak, Teeradaj and Yoshioka, Nobukazu and Ubayashi, Naoyasu and Washizaki, Hironori},
-  title   = {Generative {AI} for requirements engineering: A systematic literature review},
-  journal = {Software: Practice and Experience},
-  volume  = {56},
-  number  = {2},
-  pages   = {141--170},
-  year    = {2026},
-  doi     = {10.1002/spe.70029}
-}
-
-@article{stein2026,
-  author  = {Stein, Armin and Mirzai, Aksir and Axmann, Joachim and Vietor, Thomas},
-  title   = {Integrating the capabilities offered by large language models into the requirements engineering process},
-  journal = {Digital Engineering},
-  volume  = {10},
-  eid     = {100098},
-  year    = {2026},
-  doi     = {10.1016/j.dte.2026.100098}
-}
-
-@techreport{priya2020,
-  author      = {Priya, Jayati},
-  title       = {Managing Requirements \& Improving Quality: Project Requirements Management \& Traceability},
-  type        = {White paper},
-  institution = {TraceCloud},
-  year        = {2020},
-  month       = dec,
-  url         = {https://www.tracecloud.com/GloreeJava2/documentation/whitePaperTraceCloud.pdf},
-  urldate     = {2026-11-20}
-}
-@inproceedings{rozenberga2025,
-  author    = {Rozenberga, Agnese and Kirikova, Marite},
-  title     = {Enterprise Model for Requirements Management: Evaluation of Capability Gaps in {Jira} and Marketplace Applications},
-  booktitle = {PoEM 2025: Companion Proceedings of the 18th {IFIP} Working Conference on the Practice of Enterprise Modeling},
-  series    = {CEUR Workshop Proceedings},
-  volume    = {4171},
-  address   = {Geneva, Switzerland},
-  year      = {2025},
-  note      = {Paper 69. Published 2026-02-20},
-  url       = {https://ceur-ws.org/Vol-4171/paper_69.pdf},
-  urldate   = {2026-11-21}
-}
-\end{filecontents*}
-
 \documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -124,7 +39,6 @@
         \small
         \textbf{Integrantes:}
         \begin{itemize}[noitemsep,topsep=2pt]
-            \item Aldas Zambrano Alan Andrés
             \item Alvia Villegas Erick Adalberto
             \item Llerena Abril Angelina Julexy
             \item Moran Pilaguano Frixon Fernando
@@ -415,14 +329,14 @@ ISR401-AALM/\\
 |-- main.pdf\\
 |-- README.md\\
 +-- Evidencias/\\
-    |-- TraceCloud-CAP-01\_2.jpg\\
-    |-- TraceCloud-CAP-02\_2.png\\
-    |-- TraceCloud-CAP-03\_2.png\\
-    |-- TraceCloud-CAP-04\_2.png\\
+    |-- TraceCloud-CAP-01.png\\
+    |-- TraceCloud-CAP-02.png\\
+    |-- TraceCloud-CAP-03.png\\
+    |-- TraceCloud-CAP-04.png\\
     +-- TraceCloud-CAP-05.png
 \end{quote}
 
-La Tabla~\ref{tab:manifiesto} presenta el manifiesto de las evidencias gráficas incluidas en la carpeta \texttt{Evidencias/} del repositorio. Antes del cierre de la entrega se debe completar la columna \textbf{SHA-256} con el resumen criptográfico calculado localmente sobre cada archivo.
+La Tabla~\ref{tab:manifiesto} presenta el manifiesto de las evidencias gráficas incluidas en la carpeta \texttt{Evidencias/} del repositorio junto con su huella criptográfica SHA-256 calculada localmente.
 
 \begin{table}[H]
 \centering
@@ -460,10 +374,9 @@ Se utilizó Claude (Anthropic), versión Claude Sonnet 3.5, para proponer la est
 \toprule
 \textbf{Integrante} & \textbf{Aportes Verificables} \\
 \midrule
-Aldas Zambrano Alan Andrés & Redacción del marco conceptual (Sección 3), investigación bibliográfica y tabla comparativa con Jira (Sección 7.3). \\
-Alvia Villegas Erick Adalberto & Elicitación de preguntas para entrevistas, modelado de Historias de Usuario, desarrollo del caso práctico \textit{Fabro Arriendos} en TraceCloud (Sección 8) y generación del manifiesto de evidencias. \\
-Llerena Abril Angelina Julexy & Análisis cualitativo de funciones de TraceCloud (Sección 4), ventajas, limitaciones y redacción de conclusiones (Sección 7 y 9). \\
-Moran Pilaguano Frixon Fernando & Configuración y compilación del documento LaTeX, estructuración de pasos de aplicación (Sección 6) y publicación de artefactos en el repositorio Git. \\
+Alvia Villegas Erick Adalberto & Elicitación de preguntas para entrevistas, modelado de Historias de Usuario, desarrollo del caso práctico \textit{Fabro Arriendos} en TraceCloud (Sección 8), generación del manifiesto de evidencias y apoyo en la redacción del marco conceptual (Sección 3). \\
+Llerena Abril Angelina Julexy & Análisis cualitativo de funciones de TraceCloud (Sección 4), ventajas, limitaciones, comparación con Jira (Sección 7.3), consolidación del marco conceptual (Sección 3) y redacción de conclusiones (Sección 7 y 9). \\
+Moran Pilaguano Frixon Fernando & Configuración y compilación del documento LaTeX, estructuración de pasos de aplicación (Sección 6), revisión bibliográfica y publicación de artefactos en el repositorio Git. \\
 \bottomrule
 \end{tabularx}
 \end{table}
