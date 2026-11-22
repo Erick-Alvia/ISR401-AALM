@@ -16,6 +16,8 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,calc,positioning}
 \usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
 \usepackage[spanish]{babel}
 % Tipografía vectorial compatible con pdfLaTeX; preserva el estilo sans serif.
 \renewcommand{\sfdefault}{lmss}
@@ -41,6 +43,8 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}{}
 \setbeameroption{hide notes}
+% Declaración de uso de IA (guía GA-SUM-02, sección 7.7): EDITAR antes de entregar.
+\newcommand{\usoIA}{[COMPLETAR: herramienta, versión, propósito y cómo se verificó; o declarar que no se usó IA]}
 \begin{document}
 \begin{frame}[plain]
 \begin{tikzpicture}[remember picture,overlay,x=1cm,y=-1cm]
@@ -70,10 +74,59 @@
 \node[anchor=north west,inner sep=0pt,text width=2.90cm,align=center,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=lilac] at (11.00,6.77) {TRAZABILIDAD};
 \draw[draw=darkline,line width=0.01cm] (0.76,8.48) -- (15.30,8.48);
 \node[anchor=north west,inner sep=0pt,text width=5.00cm,align=left,font={\fontsize{5.36}{6.6}\selectfont\bfseries},text=lilac] at (0.80,8.59) {UTEQ / ISR-401 / AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{6.03}{7.5}\selectfont\bfseries},text=lilac] at (14.80,8.57) {01};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{6.03}{7.5}\selectfont\bfseries},text=lilac] at (14.80,8.57) {\insertframenumber};
 \end{scope}
 \end{tikzpicture}
-\note{Presentación: “TraceCloud: gestión y trazabilidad de requisitos”. Este trabajo corresponde a la actividad GA-SUM-02 de Ingeniería de Requerimientos, carrera de Software, cuarto nivel, paralelo A, Universidad Técnica Estatal de Quevedo. Integrantes: Erick Adalberto Alvia Villegas, Angelina Julexy Llerena Abril y Frixon Fernando Moran Pilaguano. Empezaremos con el problema que motiva el uso de herramientas especializadas y después mostraremos la demostración realizada sobre Fabro Arriendos.}
+\note{Buenos días. Somos el grupo AALM y nos tocó el tema 7: herramientas de gestión de requisitos. Elegimos TraceCloud y la probamos con nuestro caso, Fabro Arriendos. Primero explicamos el problema que resuelve esta herramienta y después mostramos lo que hicimos en ella.}
+\end{frame}
+
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay,x=1cm,y=-1cm]
+\begin{scope}[shift={(current page.north west)}]
+\path[use as bounding box] (0,0) rectangle (16,9);
+\fill[bg] (0,0) rectangle (16,9);
+\fill[accent] (0,0) rectangle (0.15,9);
+\fill[wash] (15.10,0.65) circle (0.80cm);
+\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {01 / CONTEXTO};
+\node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {El problema: requisitos desconectados};
+\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {La dispersión dificulta evaluar el impacto de los cambios.};
+\draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
+\node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
+\path[fill=white, rounded corners=0.19cm] (0.86,2.69) rectangle (7.18,6.57);
+\node[anchor=north west,inner sep=0pt,text width=5.60cm,align=left,font={\fontsize{7.24}{9.0}\selectfont\bfseries},text=accent] at (1.16,3.00) {DOCUMENTOS SEPARADOS};
+\path[fill=wash, rounded corners=0.12cm] (1.36,3.66) rectangle (5.81,4.26);
+\fill[violet2] (1.76,3.95) circle (0.16cm);
+\node[anchor=north west,inner sep=0pt,text width=3.30cm,align=left,font={\fontsize{8.71}{10.8}\selectfont\bfseries},text=ink] at (2.08,3.83) {Requisitos.docx};
+\path[fill=wash, rounded corners=0.12cm] (1.36,4.48) rectangle (5.81,5.08);
+\fill[blue] (1.76,4.77) circle (0.16cm);
+\node[anchor=north west,inner sep=0pt,text width=3.30cm,align=left,font={\fontsize{8.71}{10.8}\selectfont\bfseries},text=ink] at (2.08,4.65) {Matriz.xlsx};
+\path[fill=wash, rounded corners=0.12cm] (1.36,5.30) rectangle (5.81,5.90);
+\fill[teal] (1.76,5.59) circle (0.16cm);
+\node[anchor=north west,inner sep=0pt,text width=3.30cm,align=left,font={\fontsize{8.71}{10.8}\selectfont\bfseries},text=ink] at (2.08,5.47) {Pruebas.xlsx};
+\node[anchor=north west,inner sep=0pt,text width=5.30cm,align=left,font={\fontsize{7.91}{9.8}\selectfont},text=muted] at (1.37,6.10) {Sin vínculos explícitos};
+\node[anchor=north west,inner sep=0pt,text width=1.00cm,align=center,font={\fontsize{18.76}{23.3}\selectfont\bfseries},text=accent] at (7.44,4.15) {→};
+\path[fill=wash, rounded corners=0.19cm] (8.23,2.69) rectangle (15.13,6.57);
+\node[anchor=north west,inner sep=0pt,text width=6.20cm,align=left,font={\fontsize{7.24}{9.0}\selectfont\bfseries},text=accent] at (8.56,3.00) {REPOSITORIO TRAZABLE};
+\fill[accent] (11.68,4.56) circle (0.47cm);
+\node[anchor=north west,inner sep=0pt,text width=0.35cm,align=center,font={\fontsize{13.40}{16.6}\selectfont\bfseries},text=white] at (11.51,4.40) {R};
+\draw[draw=accent,line width=0.02cm] (11.68,4.56) -- (10.26,4.21);
+\fill[blue] (10.26,4.21) circle (0.29cm);
+\node[anchor=north west,inner sep=0pt,text width=0.38cm,align=center,font={\fontsize{6.43}{8.0}\selectfont\bfseries},text=white] at (10.08,4.09) {BR};
+\draw[draw=accent,line width=0.02cm] (11.68,4.56) -- (13.41,4.16);
+\fill[teal] (13.41,4.16) circle (0.29cm);
+\node[anchor=north west,inner sep=0pt,text width=0.38cm,align=center,font={\fontsize{6.43}{8.0}\selectfont\bfseries},text=white] at (13.23,4.04) {TC};
+\draw[draw=accent,line width=0.02cm] (11.68,4.56) -- (10.29,5.61);
+\fill[violet2] (10.29,5.61) circle (0.29cm);
+\node[anchor=north west,inner sep=0pt,text width=0.38cm,align=center,font={\fontsize{6.43}{8.0}\selectfont\bfseries},text=white] at (10.11,5.49) {V};
+\draw[draw=accent,line width=0.02cm] (11.68,4.56) -- (13.40,5.56);
+\fill[blue] (13.40,5.56) circle (0.29cm);
+\node[anchor=north west,inner sep=0pt,text width=0.38cm,align=center,font={\fontsize{6.43}{8.0}\selectfont\bfseries},text=white] at (13.22,5.44) {P};
+\node[anchor=north west,inner sep=0pt,text width=5.80cm,align=left,font={\fontsize{7.91}{9.8}\selectfont},text=muted] at (8.86,6.10) {Relaciones consultables};
+\node[anchor=north west,inner sep=0pt,text width=8.50cm,align=center,font={\fontsize{8.11}{10.1}\selectfont\bfseries},text=accent] at (3.93,7.14) {OBJETIVO: VISIBILIZAR DEPENDENCIAS};
+\end{scope}
+\end{tikzpicture}
+\note{Cuando los requisitos viven en un Word, una matriz en Excel y otro archivo de pruebas, nadie ve qué depende de qué. Si cambia un requisito, no sabemos qué pruebas o funciones se afectan. El fabricante plantea este problema en su documento técnico [8], y por eso propone un repositorio donde las relaciones se puedan consultar. Antes de ver la herramienta, aclaremos tres actividades que suelen confundirse.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -84,11 +137,11 @@
 \fill[accent] (0,0) rectangle (0.15,9);
 \fill[wash] (15.10,0.65) circle (0.80cm);
 \node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {02 / FUNDAMENTOS};
-\node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Elicitación, gestión y conocimiento};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {De las necesidades explícitas o implícitas a requisitos trazables [1]--[3].};
+\node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Tres actividades que no son iguales};
+\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Elicitación, gestión y trazabilidad cumplen objetivos distintos [1], [3].};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {02};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=white, rounded corners=0.20cm] (0.85,2.75) rectangle (5.58,6.28);
 \fill[accent] (1.45,3.31) circle (0.36cm);
 \node[anchor=north west,inner sep=0pt,text width=0.36cm,align=center,font={\fontsize{6.97}{8.6}\selectfont\bfseries},text=white] at (1.28,3.18) {01};
@@ -107,15 +160,46 @@
 \node[anchor=north west,inner sep=0pt,text width=4.00cm,align=left,font={\fontsize{15.41}{19.1}\selectfont\bfseries},text=ink] at (11.50,4.02) {Trazabilidad};
 \node[anchor=north west,inner sep=0pt,text width=4.12cm,align=left,font={\fontsize{9.38}{11.6}\selectfont\bfseries},text=accent] at (11.50,4.81) {Relacionar elementos};
 \node[anchor=north west,inner sep=0pt,text width=4.05cm,align=left,font={\fontsize{6.90}{8.6}\selectfont},text=muted] at (11.50,5.40) {Origen, requisitos y pruebas};
-\path[fill=wash, rounded corners=0.15cm] (0.90,6.63) rectangle (7.68,7.67);
-\path[fill=wash, rounded corners=0.15cm] (8.05,6.63) rectangle (15.15,7.67);
-\node[anchor=north west,inner sep=0pt,text width=6.20cm,align=left,font={\fontsize{8.60}{11.0}\selectfont\bfseries},text=ink] at (1.20,6.83) {Consciente: necesidades expresables};
-\node[anchor=north west,inner sep=0pt,text width=6.40cm,align=left,font={\fontsize{8.60}{11.0}\selectfont\bfseries},text=ink] at (8.35,6.83) {Implícito: hábitos y supuestos};
-\node[anchor=north west,inner sep=0pt,text width=6.25cm,align=left,font={\fontsize{7.00}{8.7}\selectfont},text=muted] at (1.21,7.27) {Se registran tras su clarificación};
-\node[anchor=north west,inner sep=0pt,text width=6.35cm,align=left,font={\fontsize{7.00}{8.7}\selectfont},text=muted] at (8.37,7.27) {Entrevistas y observación para descubrirlos};
+\path[fill=wash, rounded corners=0.18cm] (2.24,6.82) rectangle (13.84,7.57);
+\node[anchor=north west,inner sep=0pt,text width=11.00cm,align=center,font={\fontsize{8.84}{11.0}\selectfont\bfseries},text=ink] at (2.58,7.06) {TraceCloud se enfoca en gestión y trazabilidad};
 \end{scope}
 \end{tikzpicture}
-\note{El conocimiento puede ser expresable (consciente) o implícito (hábitos, supuestos y rutinas). Las entrevistas, observación o talleres permiten descubrir lo no verbalizado, antes de formular y documentar requisitos. Referencias [1], [2] y [3]. La elicitación reúne actividades para descubrir y comprender necesidades expresadas o implícitas. La gestión mantiene los requisitos organizados, actualizados y bajo control; la trazabilidad documenta relaciones explícitas con orígenes, dependencias y pruebas. TraceCloud se concentra principalmente en almacenar y controlar requisitos que ya han sido formulados. El flujo visual no pretende presentar fases aisladas o rígidamente lineales: en la práctica las actividades pueden iterarse a lo largo del proyecto.}
+\note{La elicitación busca descubrir lo que la gente necesita. La gestión mantiene esos requisitos organizados, con versiones y estados. La trazabilidad enlaza cada requisito con su origen y con sus pruebas. Son actividades distintas, y TraceCloud se ubica en las dos últimas: no sirve para descubrir necesidades, sino para controlarlas una vez formuladas.}
+\end{frame}
+
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay,x=1cm,y=-1cm]
+\begin{scope}[shift={(current page.north west)}]
+\path[use as bounding box] (0,0) rectangle (16,9);
+\fill[bg] (0,0) rectangle (16,9);
+\fill[accent] (0,0) rectangle (0.15,9);
+\fill[wash] (15.10,0.65) circle (0.80cm);
+\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {02 / FUNDAMENTOS};
+\node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {El conocimiento no siempre es explícito};
+\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Primero se descubren necesidades; después se documentan [1], [2].};
+\draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
+\node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
+\path[fill=white, rounded corners=0.20cm] (0.85,2.69) rectangle (7.77,6.44);
+\fill[teal] (1.49,3.26) circle (0.30cm);
+\node[anchor=north west,inner sep=0pt,text width=5.00cm,align=left,font={\fontsize{6.57}{8.1}\selectfont\bfseries},text=accent] at (2.00,3.10) {EXPRESABLE};
+\node[anchor=north west,inner sep=0pt,text width=5.40cm,align=left,font={\fontsize{15.41}{19.1}\selectfont\bfseries},text=ink] at (1.35,3.75) {Consciente};
+\fill[teal] (1.47,4.71) circle (0.07cm);
+\node[anchor=north west,inner sep=0pt,text width=5.30cm,align=left,font={\fontsize{8.58}{10.6}\selectfont},text=ink] at (1.76,4.56) {Necesidades reconocidas};
+\fill[teal] (1.47,5.29) circle (0.07cm);
+\node[anchor=north west,inner sep=0pt,text width=5.30cm,align=left,font={\fontsize{8.58}{10.6}\selectfont},text=ink] at (1.76,5.14) {Declaraciones del interesado};
+\path[fill=white, rounded corners=0.20cm] (8.17,2.69) rectangle (15.09,6.44);
+\fill[accent] (8.81,3.26) circle (0.30cm);
+\node[anchor=north west,inner sep=0pt,text width=5.00cm,align=left,font={\fontsize{6.57}{8.1}\selectfont\bfseries},text=accent] at (9.32,3.10) {NO VERBALIZADO};
+\node[anchor=north west,inner sep=0pt,text width=5.40cm,align=left,font={\fontsize{15.41}{19.1}\selectfont\bfseries},text=ink] at (8.67,3.75) {Implícito};
+\fill[accent] (8.79,4.71) circle (0.07cm);
+\node[anchor=north west,inner sep=0pt,text width=5.30cm,align=left,font={\fontsize{8.58}{10.6}\selectfont},text=ink] at (9.08,4.56) {Hábitos y supuestos};
+\fill[accent] (8.79,5.29) circle (0.07cm);
+\node[anchor=north west,inner sep=0pt,text width=5.30cm,align=left,font={\fontsize{8.58}{10.6}\selectfont},text=ink] at (9.08,5.14) {Entrevistas, observación y talleres};
+\node[anchor=north west,inner sep=0pt,text width=8.40cm,align=center,font={\fontsize{10.05}{12.5}\selectfont\bfseries},text=accent] at (3.87,7.08) {DESCUBRIR ANTES DE REGISTRAR};
+\end{scope}
+\end{tikzpicture}
+\note{No todo lo que un cliente sabe lo puede decir. Lo consciente se declara sin problema; lo implícito, como hábitos o supuestos, casi nunca sale solo. Para eso se usan entrevistas, observación o talleres [1], [2]. Por eso la herramienta entra después: primero se descubre, luego se registra y se traza.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -127,10 +211,10 @@
 \fill[wash] (15.10,0.65) circle (0.80cm);
 \node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {03 / HERRAMIENTA};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {TraceCloud: definición y propósito};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Solución al problema de requisitos dispersos en Word y Excel [8].};
+\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Software especializado para gestionar y trazar requisitos.};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {03};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=linecol, rounded corners=0.12cm] (0.95,2.84) rectangle (9.48,7.10);
 \path[fill=white, rounded corners=0.14cm] (0.79,2.66) rectangle (9.48,7.08);
 \begin{scope}
@@ -144,10 +228,10 @@
 \node[anchor=north west,inner sep=0pt,text width=4.40cm,align=left,font={\fontsize{9.38}{11.6}\selectfont\bfseries},text=ink] at (10.21,4.70) {Controlar versiones y aprobación};
 \draw[draw=linecol,line width=0.01cm] (10.20,5.32) -- (14.61,5.32);
 \node[anchor=north west,inner sep=0pt,text width=4.25cm,align=left,font={\fontsize{11.39}{14.1}\selectfont\bfseries},text=ink] at (10.21,5.69) {Rastrear relaciones};
-\node[anchor=north west,inner sep=0pt,text width=8.00cm,align=left,font={\fontsize{6.10}{7.6}\selectfont},text=muted] at (0.91,7.21) {Problema: documentos aislados; respuesta: repositorio con vínculos [8].};
+\node[anchor=north west,inner sep=0pt,text width=8.60cm,align=left,font={\fontsize{6.10}{7.6}\selectfont},text=muted] at (0.91,7.21) {Captura 01: panel de FabroArriendos (Business Requirements, Functional Requirements y Test Cases). Fuente de las funciones: [8].};
 \end{scope}
 \end{tikzpicture}
-\note{El problema introductorio de requisitos dispersos en Word/Excel se ha integrado en esta lámina para evitar redundancias. La documentación del fabricante [8] indica centralización y trazabilidad. TraceCloud se presenta en su documento técnico como una herramienta para definir, aprobar, controlar y dar seguimiento a requisitos. Admite diferentes tipos y atributos, gestión de versiones, permisos y visualizaciones de trazabilidad. El documento del fabricante de 2020 describe opciones de uso en la nube o infraestructura propia; algunas capacidades pueden haber cambiado. Se muestra el panel real del proyecto FabroArriendos capturado por el equipo.}
+\note{TraceCloud es un software para definir, aprobar, controlar y rastrear requisitos. Permite crear distintos tipos de requisito con atributos, manejar versiones y permisos, y ver la trazabilidad en varias vistas [8]. Lo que vemos a la izquierda es el panel del proyecto FabroArriendos que creamos nosotros. Ojo: el documento del fabricante es de 2020, así que alguna función pudo cambiar.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -159,10 +243,10 @@
 \fill[wash] (15.10,0.65) circle (0.80cm);
 \node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {03 / HERRAMIENTA};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Funciones para controlar requisitos};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Árbol, matriz, Org Chart, baselines y alertas SUSPECT [8].};
+\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Vistas de trazabilidad y detección de cambios.};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {04};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=violet2, rounded corners=0.21cm] (0.87,2.65) rectangle (6.43,7.13);
 \node[anchor=north west,inner sep=0pt,text width=4.70cm,align=left,font={\fontsize{6.70}{8.3}\selectfont\bfseries},text=lilac] at (1.19,3.03) {FUNCIÓN DESTACADA};
 \node[anchor=north west,inner sep=0pt,text width=4.95cm,align=left,font={\fontsize{18.76}{23.3}\selectfont\bfseries},text=white] at (1.17,3.74) {SUSPECT};
@@ -184,10 +268,9 @@
 \fill[accent] (11.52,5.45) circle (0.22cm);
 \node[anchor=north west,inner sep=0pt,text width=3.40cm,align=left,font={\fontsize{10.92}{13.5}\selectfont\bfseries},text=ink] at (11.33,5.90) {Baselines};
 \node[anchor=north west,inner sep=0pt,text width=3.35cm,align=left,font={\fontsize{7.37}{9.1}\selectfont},text=muted] at (11.34,6.47) {Líneas base};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{6.45}{8.5}\selectfont},text=muted] at (0.98,7.56) {IA generativa y LLM: líneas de apoyo distintas de la gestión demostrada [4], [5].};
 \end{scope}
 \end{tikzpicture}
-\note{Las publicaciones [4] y [5] estudian IA generativa y grandes modelos de lenguaje en ingeniería de requisitos, un ámbito distinto de las funciones específicas documentadas y ensayadas de TraceCloud. No afirmar que las funciones presentadas dependen de IA generativa. Entre las funcionalidades documentadas se encuentran las vistas Trace Tree, Trace Matrix y Trace Org Chart, así como las líneas base, las aprobaciones y la identificación de requisitos sin trazas ascendentes u horizontales. La característica que el equipo puso a prueba fue la alerta Suspect: después de modificar un requisito vinculado, la herramienta marca una relación que requiere nueva revisión. La alerta no implica por sí sola que el requisito sea inválido ni que la plataforma haya corregido el cambio automáticamente.}
+\note{Estas son las funciones que revisamos: árbol de trazas, matriz, diagrama Org Chart y líneas base. La que probamos en la práctica fue la de trazas sospechosas: cuando se modifica un requisito vinculado, la herramienta marca la relación para que alguien la revise. Más adelante la mostramos con una captura propia.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -199,10 +282,10 @@
 \fill[wash] (15.10,0.65) circle (0.80cm);
 \node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {04 / DECISIÓN DE USO};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {¿Cuándo conviene utilizarla?};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {La adopción depende de escala, trazabilidad y control [1], [6], [8].};
+\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Depende del tamaño, los cambios y el nivel de control.};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {05};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=white, rounded corners=0.18cm] (0.86,2.68) rectangle (7.96,6.91);
 \node[anchor=north west,inner sep=0pt,text width=6.00cm,align=left,font={\fontsize{7.77}{9.6}\selectfont\bfseries},text=teal] at (1.25,3.04) {CONVIENE};
 \fill[teal] (1.43,3.84) circle (0.14cm);
@@ -231,7 +314,7 @@
 \node[anchor=north west,inner sep=0pt,text width=12.50cm,align=left,font={\fontsize{6.50}{8.1}\selectfont},text=muted] at (0.92,7.40) {ReqIF: compatibilidad no documentada en la fuente consultada.};
 \end{scope}
 \end{tikzpicture}
-\note{TraceCloud resulta apropiada cuando un proyecto maneja numerosos requisitos dispersos, necesita trazabilidad multinivel y requiere control de cambios o aprobación formal. En proyectos cortos con muy pocos requisitos, el esfuerzo de configuración puede resultar excesivo. Tampoco es sustituto de entrevistas ni de otras técnicas de descubrimiento. El informe no encontró declaración de compatibilidad con ReqIF en la documentación revisada, por lo que no debe asegurarse que ese formato esté soportado. Es una consideración documental, no una prueba de incompatibilidad absoluta.}
+\note{Conviene cuando hay muchos requisitos, cambios que afectan a otros elementos, roles distintos o necesidad de aprobaciones y líneas base. Para un proyecto muy pequeño la configuración puede costar más que el beneficio. Tampoco sirve para el descubrimiento inicial. Y en la documentación que revisamos no encontramos compatibilidad con ReqIF, así que no lo damos por soportado.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -243,10 +326,10 @@
 \fill[wash] (15.10,0.65) circle (0.80cm);
 \node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {05 / PROCEDIMIENTO};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Cinco pasos para aplicarla};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Procedimiento documentado y aplicado en el caso [8].};
+\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Secuencia aplicada con la plantilla Generic.};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {06};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=white, rounded corners=0.19cm] (0.77,3.27) rectangle (3.63,5.96);
 \fill[accent] (2.19,3.79) circle (0.42cm);
 \node[anchor=north west,inner sep=0pt,text width=0.52cm,align=center,font={\fontsize{9.04}{11.2}\selectfont\bfseries},text=white] at (1.93,3.62) {01};
@@ -279,7 +362,7 @@
 \node[anchor=north west,inner sep=0pt,text width=10.60cm,align=center,font={\fontsize{9.38}{11.6}\selectfont\bfseries},text=accent] at (2.80,6.94) {Del requisito registrado al impacto revisable};
 \end{scope}
 \end{tikzpicture}
-\note{La secuencia reproducible indicada en el informe comienza creando un proyecto con la plantilla Generic. Después se ajustan la estructura de carpetas, atributos y permisos. Se registran o importan requisitos de negocio, funcionales y casos de prueba, se establecen relaciones entre ellos y se revisan los cambios mediante vistas de trazabilidad, reportes y paneles. En el caso práctico el equipo creó FabroArriendos, registró BR y FR, trazó FR-1 con BR-1 y dos casos de prueba y provocó una alerta Suspect.}
+\note{Seguimos cinco pasos. Creamos el proyecto con la plantilla Generic, configuramos carpetas y roles, registramos requisitos de negocio, funcionales y casos de prueba, los relacionamos entre niveles y revisamos los cambios en los reportes. Así lo hicimos en FabroArriendos, y las capturas que siguen son de ese trabajo.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -291,10 +374,10 @@
 \fill[wash] (15.10,0.65) circle (0.80cm);
 \node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {06 / ANÁLISIS CRÍTICO};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {TraceCloud frente a Jira};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Evaluación de capacidades documentadas, no de versiones actuales [7], [8].};
+\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Comparación documentada [6], [7]; no equivale a una prueba actual.};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {07};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=wash, rounded corners=0.17cm] (0.85,2.61) rectangle (7.82,7.39);
 \fill[accent] (1.58,3.30) circle (0.38cm);
 \node[anchor=north west,inner sep=0pt,text width=0.34cm,align=center,font={\fontsize{12.06}{15.0}\selectfont\bfseries},text=white] at (1.41,3.14) {T};
@@ -319,10 +402,10 @@
 \node[anchor=north west,inner sep=0pt,text width=6.00cm,align=left,font={\fontsize{9.25}{11.5}\selectfont\bfseries},text=ink] at (1.34,6.26) {No cubre todo el ciclo};
 \node[anchor=north west,inner sep=0pt,text width=6.00cm,align=left,font={\fontsize{6.43}{8.0}\selectfont\bfseries},text=accent] at (8.61,5.94) {ALCANCE};
 \node[anchor=north west,inner sep=0pt,text width=6.00cm,align=left,font={\fontsize{9.25}{11.5}\selectfont\bfseries},text=ink] at (8.61,6.26) {Otras funciones: soporte parcial};
-\node[anchor=north west,inner sep=0pt,text width=14.70cm,align=left,font={\fontsize{6.57}{8.1}\selectfont},text=muted] at (1.01,7.65) {Criterio: TraceCloud, control formal de requisitos; Jira, gestión de tareas [7], [8].};
+\node[anchor=north west,inner sep=0pt,text width=14.70cm,align=left,font={\fontsize{6.57}{8.1}\selectfont},text=muted] at (1.01,7.65) {Hallazgo [7]: ninguna aplicación evaluada cubrió por sí sola todo el ciclo.};
 \end{scope}
 \end{tikzpicture}
-\note{Interpretación aplicable al caso: TraceCloud destaca por versiones, aprobaciones y representaciones dedicadas a trazas, y Jira por el seguimiento de trabajo. No se debe suponer superioridad universal ni generalizar la evaluación de una versión a todas las versiones. Jira se orienta principalmente a la gestión de proyectos. TraceCloud se presenta como herramienta especializada en requisitos y trazabilidad. Rozenberga y Kirikova evaluaron funcionalidades de Jira y aplicaciones de su Marketplace, incluida TraceCloud. La evaluación encontró que ninguna de las aplicaciones analizadas cubría por sí sola todo el ciclo de gestión de requisitos. Para Jira se reconoció soporte completo en las funciones de trazabilidad evaluadas, con cobertura parcial en múltiples otras áreas. La comparación de la diapositiva resume el informe; no es una medición actualizada de versiones comerciales.}
+\note{Comparamos con Jira. Jira es una herramienta de gestión de proyectos; TraceCloud se centra en requisitos y trazabilidad. Rozenberga y Kirikova evaluaron Jira y aplicaciones de su Marketplace, y encontraron que ninguna cubría sola todo el ciclo de gestión de requisitos [7]. Los criterios de funciones para este tipo de herramientas se apoyan en [6]. Es una comparación documentada, no una prueba nuestra con versiones actuales.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -337,7 +420,7 @@
 \node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Gestión de arriendos para estudiantes y propietarios de Quevedo.};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {08};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=white, rounded corners=0.20cm] (0.86,2.72) rectangle (5.61,6.60);
 \fill[accent] (1.54,3.37) circle (0.40cm);
 \node[anchor=north west,inner sep=0pt,text width=0.27cm,align=center,font={\fontsize{10.72}{13.3}\selectfont\bfseries},text=white] at (1.40,3.17) {1};
@@ -368,10 +451,10 @@
 \node[anchor=north west,inner sep=0pt,text width=3.60cm,align=left,font={\fontsize{7.50}{9.3}\selectfont},text=ink] at (11.82,5.07) {Supervisar operaciones};
 \fill[teal] (11.59,5.80) circle (0.05cm);
 \node[anchor=north west,inner sep=0pt,text width=3.60cm,align=left,font={\fontsize{7.50}{9.3}\selectfont},text=ink] at (11.82,5.64) {Control de plataforma};
-\node[anchor=north west,inner sep=0pt,text width=14.20cm,align=left,font={\fontsize{7.04}{8.7}\selectfont},text=muted] at (0.92,7.13) {Fuente del caso: entrevistas semiestructuradas descritas en el informe.};
+\node[anchor=north west,inner sep=0pt,text width=14.20cm,align=left,font={\fontsize{7.04}{8.7}\selectfont},text=muted] at (0.92,7.13) {Fuente del caso: entrevistas semiestructuradas realizadas por el equipo.};
 \end{scope}
 \end{tikzpicture}
-\note{Fabro Arriendos es un software planteado para la gestión de arriendos en Quevedo. En el caso descrito, estudiantes foráneos necesitan consultar habitaciones disponibles, condiciones, precios y servicios, mientras que los propietarios requieren herramientas para la administración, cobros y mantenimiento. También existe el rol de administrador de plataforma para verificar publicaciones y supervisar operaciones. El informe indica que las necesidades fueron identificadas mediante entrevistas semiestructuradas a propietarios y estudiantes. No se inventan métricas de usuarios o beneficios medidos.}
+\note{Fabro Arriendos es el sistema que planteamos para gestionar arriendos en Quevedo. Tiene tres roles: el estudiante que busca habitación, el propietario que administra habitaciones, pagos y mantenimiento, y el administrador que verifica publicaciones. Las necesidades salieron de entrevistas semiestructuradas que hizo el equipo. Con este caso hicimos la demostración.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -382,45 +465,11 @@
 \fill[accent] (0,0) rectangle (0.15,9);
 \fill[wash] (15.10,0.65) circle (0.80cm);
 \node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {08 / DEMOSTRACIÓN · 01};
-\node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Proyecto creado y organizado};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Panel principal de FabroArriendos};
-\draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
-\node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {09};
-\path[fill=linecol, rounded corners=0.12cm] (0.89,2.88) rectangle (9.54,7.06);
-\path[fill=white, rounded corners=0.14cm] (0.73,2.70) rectangle (9.54,7.04);
-\begin{scope}
-\clip[rounded corners=0.09cm] (0.81,2.78) rectangle (9.46,6.96);
-\node[anchor=north west,inner sep=0pt] at (0.81,2.78) {\includegraphics[width=8.65cm,height=4.18cm]{Evidencias/TraceCloud-CAP-01.png}};
-\end{scope}
-\path[fill=white, rounded corners=0.18cm] (9.77,2.76) rectangle (15.13,6.97);
-\node[anchor=north west,inner sep=0pt,text width=4.50cm,align=left,font={\fontsize{7.17}{8.9}\selectfont\bfseries},text=accent] at (10.13,3.03) {CAPTURA 01};
-\node[anchor=north west,inner sep=0pt,text width=4.50cm,align=left,font={\fontsize{5.96}{7.4}\selectfont\bfseries},text=muted] at (10.13,3.45) {EVIDENCIA DEL EQUIPO};
-\fill[accent] (10.21,4.06) circle (0.07cm);
-\node[anchor=north west,inner sep=0pt,text width=4.25cm,align=left,font={\fontsize{8.51}{10.6}\selectfont},text=ink] at (10.48,3.92) {Business Requirements};
-\fill[accent] (10.21,4.65) circle (0.07cm);
-\node[anchor=north west,inner sep=0pt,text width=4.25cm,align=left,font={\fontsize{8.51}{10.6}\selectfont},text=ink] at (10.48,4.51) {Functional Requirements};
-\fill[accent] (10.21,5.24) circle (0.07cm);
-\node[anchor=north west,inner sep=0pt,text width=4.25cm,align=left,font={\fontsize{8.51}{10.6}\selectfont},text=ink] at (10.48,5.10) {Test Cases};
-\node[anchor=north west,inner sep=0pt,text width=8.70cm,align=left,font={\fontsize{6.70}{8.3}\selectfont},text=muted] at (0.90,7.36) {TraceCloud-CAP-01.png};
-\end{scope}
-\end{tikzpicture}
-\note{Esta es la primera evidencia de la práctica. El equipo creó el proyecto FabroArriendos a partir de la plantilla Generic. La estructura incluye carpetas para requisitos de negocio, requisitos funcionales y casos de prueba. En el panel se observan accesos a configuración, búsqueda, reportes, herramientas de trazabilidad y tableros. Para una demostración oral conviene señalar las carpetas de la izquierda y luego abrir los requisitos registrados.}
-\end{frame}
-
-\begin{frame}[plain]
-\begin{tikzpicture}[remember picture,overlay,x=1cm,y=-1cm]
-\begin{scope}[shift={(current page.north west)}]
-\path[use as bounding box] (0,0) rectangle (16,9);
-\fill[bg] (0,0) rectangle (16,9);
-\fill[accent] (0,0) rectangle (0.15,9);
-\fill[wash] (15.10,0.65) circle (0.80cm);
-\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {08 / DEMOSTRACIÓN · 02};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Historias de usuario registradas};
 \node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Business Requirements / Client A};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {10};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=linecol, rounded corners=0.12cm] (0.89,2.88) rectangle (9.54,7.06);
 \path[fill=white, rounded corners=0.14cm] (0.73,2.70) rectangle (9.54,7.04);
 \begin{scope}
@@ -441,7 +490,7 @@
 \node[anchor=north west,inner sep=0pt,text width=8.70cm,align=left,font={\fontsize{6.70}{8.3}\selectfont},text=muted] at (0.90,7.36) {TraceCloud-CAP-02.png};
 \end{scope}
 \end{tikzpicture}
-\note{La carpeta Business Requirements/Client A presenta cuatro historias de usuario registradas: BR-1/HU-01 sobre búsqueda filtrada; BR-2/HU-02 sobre consulta de información y condiciones de arriendo; BR-3/HU-05 acerca del respaldo de comprobantes de pago; y BR-4/HU-06 sobre reporte de daños y mantenimiento. La captura deja constancia del registro. Los nombres aparecen como historias de usuario, aunque se ubican en la estructura de requisitos de negocio de la plantilla.}
+\note{Aquí vemos la carpeta Business Requirements con cuatro historias de usuario registradas: la búsqueda filtrada, la ficha con reglas de arriendo, el respaldo de comprobantes de pago y el reporte de daños. La plantilla las guarda como requisitos de negocio.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -451,12 +500,12 @@
 \fill[bg] (0,0) rectangle (16,9);
 \fill[accent] (0,0) rectangle (0.15,9);
 \fill[wash] (15.10,0.65) circle (0.80cm);
-\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {08 / DEMOSTRACIÓN · 03};
+\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {08 / DEMOSTRACIÓN · 02};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Requisitos funcionales registrados};
 \node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Functional Requirements / Feature X};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {11};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=linecol, rounded corners=0.12cm] (0.89,2.88) rectangle (9.54,7.06);
 \path[fill=white, rounded corners=0.14cm] (0.73,2.70) rectangle (9.54,7.04);
 \begin{scope}
@@ -477,7 +526,7 @@
 \node[anchor=north west,inner sep=0pt,text width=8.70cm,align=left,font={\fontsize{6.70}{8.3}\selectfont},text=muted] at (0.90,7.36) {TraceCloud-CAP-03.png};
 \end{scope}
 \end{tikzpicture}
-\note{En Functional Requirements/Feature X el documento registra cuatro requisitos funcionales principales, FR-1 a FR-4. FR-1 define el catálogo y la búsqueda filtrada por precio, servicios y disponibilidad; FR-2 la información detallada de cada habitación; FR-3 la administración de propiedades, habitaciones e inquilinos; FR-4 pagos, prorrateo y balance financiero. La captura presentada también muestra más elementos en la carpeta Feature X, pero la tabla detallada del informe documenta específicamente FR-1 a FR-4 como parte del ejemplo explicado. Evitar declarar que esos son todos los requisitos existentes.}
+\note{En Functional Requirements registramos los requisitos de FR-1 a FR-4: catálogo con filtros, ficha transparente de la habitación, gestión de habitaciones y cobros con balances. En esta carpeta hay más elementos; mostramos estos cuatro como ejemplo.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -487,12 +536,12 @@
 \fill[bg] (0,0) rectangle (16,9);
 \fill[accent] (0,0) rectangle (0.15,9);
 \fill[wash] (15.10,0.65) circle (0.80cm);
-\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {08 / DEMOSTRACIÓN · 04};
+\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {08 / DEMOSTRACIÓN · 03};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Trazabilidad de extremo a extremo};
 \node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Necesidad de negocio, funcionalidad y casos de prueba.};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {12};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=linecol, rounded corners=0.12cm] (0.91,2.87) rectangle (9.34,7.04);
 \path[fill=white, rounded corners=0.14cm] (0.75,2.69) rectangle (9.34,7.02);
 \begin{scope}
@@ -515,7 +564,7 @@
 \node[anchor=north west,inner sep=0pt,text width=8.70cm,align=left,font={\fontsize{6.70}{8.3}\selectfont},text=muted] at (0.90,7.38) {Vista: Traceability Charts / Org Chart};
 \end{scope}
 \end{tikzpicture}
-\note{La demostración utilizó la vista Traceability Charts, Org Chart, con FR-1 como elemento focal. El equipo estableció una relación ascendente desde FR-1/RF-01 hacia BR-1/HU-01, que describe la búsqueda filtrada de habitaciones. A su vez, FR-1 se relacionó con dos casos de prueba, TC-1 y TC-2. La captura permite visualizar el encadenamiento entre necesidad de negocio, requisito funcional y pruebas. Esta traza es el punto de partida para el ensayo de impacto de cambios.}
+\note{Esta vista es el Org Chart de trazabilidad. Tomamos FR-1 como centro: lo vinculamos hacia arriba con BR-1, la búsqueda filtrada, y hacia abajo con dos casos de prueba, TC-1 y TC-2. Así se ve el camino completo desde la necesidad hasta la verificación.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -525,12 +574,12 @@
 \fill[bg] (0,0) rectangle (16,9);
 \fill[accent] (0,0) rectangle (0.15,9);
 \fill[wash] (15.10,0.65) circle (0.80cm);
-\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {08 / DEMOSTRACIÓN · 05};
+\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {08 / DEMOSTRACIÓN · 04};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Cambio detectado: alerta SUSPECT};
 \node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {BR-1 se modificó y la relación exige nueva revisión.};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {13};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=linecol, rounded corners=0.12cm] (0.92,2.87) rectangle (9.54,7.04);
 \path[fill=white, rounded corners=0.14cm] (0.76,2.69) rectangle (9.54,7.02);
 \begin{scope}
@@ -553,7 +602,7 @@
 \node[anchor=north west,inner sep=0pt,text width=8.70cm,align=left,font={\fontsize{6.70}{8.3}\selectfont},text=muted] at (0.90,7.36) {TraceCloud-CAP-05.png};
 \end{scope}
 \end{tikzpicture}
-\note{Para comprobar el análisis de impacto, el equipo editó la descripción de BR-1/HU-01. TraceCloud indicó visualmente una condición SUSPECT y el mensaje “Suspect trace — needs re-review” en el vínculo mostrado. El resultado demuestra la detección de una relación que necesita revisión; no demuestra que el sistema sepa automáticamente cómo corregirla ni que el requisito actualizado haya sido revalidado. El analista debe evaluar si los requisitos y pruebas vinculados siguen siendo coherentes. Esta es la evidencia más importante de la exposición.}
+\note{Esta es la prueba clave. Editamos la descripción de BR-1 y TraceCloud marcó el vínculo como sospechoso, con el mensaje de que necesita revisión. La herramienta detecta el cambio, pero no decide si sigue siendo correcto: alguien del equipo tiene que revisar BR-1, FR-1 y las pruebas, y revalidarlos.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -565,10 +614,10 @@
 \fill[wash] (15.10,0.65) circle (0.80cm);
 \node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {09 / SÍNTESIS};
 \node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {¿Qué demuestra el caso práctico?};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Resultados observados, límites y transparencia metodológica [6], [8].};
+\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Beneficios observados y límites de la herramienta.};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
 \node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {14};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
 \path[fill=wash, rounded corners=0.19cm] (0.85,2.78) rectangle (7.79,6.55);
 \node[anchor=north west,inner sep=0pt,text width=5.77cm,align=left,font={\fontsize{8.31}{10.3}\selectfont\bfseries},text=teal] at (1.34,3.20) {APORTES};
 \fill[teal] (1.38,4.17) circle (0.11cm);
@@ -585,14 +634,11 @@
 \node[anchor=north west,inner sep=0pt,text width=5.75cm,align=left,font={\fontsize{9.18}{11.4}\selectfont},text=ink] at (8.98,4.71) {Revisión humana necesaria};
 \fill[accent] (8.65,5.55) circle (0.11cm);
 \node[anchor=north west,inner sep=0pt,text width=5.75cm,align=left,font={\fontsize{9.18}{11.4}\selectfont},text=ink] at (8.98,5.40) {ReqIF no confirmado};
-\path[fill=white, rounded corners=0.14cm] (0.90,6.72) rectangle (15.10,7.24);
-\node[anchor=north west,inner sep=0pt,text width=13.50cm,align=center,font={\fontsize{8.40}{10.8}\selectfont\bfseries},text=accent] at (1.18,6.87) {La alerta detecta revisión pendiente; no valida automáticamente la traza [8].};
-\path[fill=wash, rounded corners=0.12cm] (0.90,7.35) rectangle (15.10,8.19);
-\node[anchor=north west,inner sep=0pt,text width=13.30cm,align=left,font={\fontsize{6.65}{8.6}\selectfont\bfseries},text=accent] at (1.18,7.49) {DECLARACIÓN DE IA (apoyo editorial, no evidencia de campo)};
-\node[anchor=north west,inner sep=0pt,text width=13.40cm,align=left,font={\fontsize{6.10}{7.9}\selectfont},text=ink] at (1.18,7.79) {Claude Sonnet 3.5; ChatGPT GPT-4o y GPT-6; Gemini (versión por confirmar). Verificación: fuentes, capturas y compilación; responsabilidad del equipo.};
+\path[fill=white, rounded corners=0.14cm] (1.86,7.04) rectangle (14.06,7.73);
+\node[anchor=north west,inner sep=0pt,text width=11.67cm,align=center,font={\fontsize{9.04}{11.2}\selectfont\bfseries},text=accent] at (2.12,7.24) {La herramienta advierte; el equipo interpreta y valida.};
 \end{scope}
 \end{tikzpicture}
-\note{Declaración de herramientas: el informe de origen declara Claude Sonnet 3.5 para estructura y corrección de LaTeX; ChatGPT GPT-4o y Gemini para revisión de texto, figuras y coherencia. En esta revisión adicional se empleó ChatGPT GPT-6 para edición técnica, bibliografía, reproducibilidad y diseño. La versión concreta de Gemini no consta en el material recibido, por lo que debe confirmarla el equipo antes de la entrega; no se atribuye a IA la generación de entrevistas o capturas originales. Las salidas se validan mediante contraste bibliográfico, revisión visual de capturas y dos ejecuciones de pdflatex. Los integrantes deben verificar la veracidad de la declaración. Conclusión del estudio: TraceCloud aporta mecanismos para centralizar y controlar los requisitos, vincular necesidades con funcionalidades y casos de prueba, y advertir relaciones que requieren revisión tras un cambio. En Fabro Arriendos el equipo verificó una alerta Suspect después de editar BR-1, lo que ilustra su utilidad para el análisis de impacto. Sin embargo, TraceCloud no sustituye las técnicas cualitativas de elicitación ni la responsabilidad del equipo en validar los vínculos. Además, la documentación consultada no permite asegurar compatibilidad con ReqIF. Cierre oral: una herramienta automatiza parte del control, no reemplaza el análisis de requisitos.}
+\note{Para cerrar: TraceCloud nos permitió centralizar requisitos, enlazarlos con funciones y pruebas, y detectar un cambio que afectaba a otros elementos. Sus límites son claros: no reemplaza las entrevistas, necesita revisión humana y no confirmamos ReqIF. Algo parecido pasa con la IA generativa en ingeniería de requisitos: la literatura reciente advierte riesgos de exactitud y trazabilidad [4], [5]. En resumen, la herramienta avisa y el equipo interpreta.}
 \end{frame}
 
 \begin{frame}[plain]
@@ -603,64 +649,14 @@
 \fill[accent] (0,0) rectangle (0.15,9);
 \fill[wash] (15.10,0.65) circle (0.80cm);
 \node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {10 / RESPALDO ACADÉMICO};
-\node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Referencias bibliográficas};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Fuentes originales del informe · Referencias [1]--[4].};
+\node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,0.95) {Referencias};
 \draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
-\node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ / ISR-401 / AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {15};
-\path[fill=white, rounded corners=0.15cm] (0.86,2.55) rectangle (15.15,3.79);
-\path[fill=wash, rounded corners=0.10cm] (1.03,2.73) rectangle (1.62,3.26);
-\node[anchor=north west,inner sep=0pt,text width=0.53cm,align=center,font={\fontsize{8.2}{10.3}\selectfont\bfseries},text=accent] at (1.06,2.85) {[1]};
-\node[anchor=north west,inner sep=0pt,text width=12.98cm,align=left,font={\fontsize{7.90}{10.74}\selectfont},text=ink] at (1.77,2.71) {K. Pohl, \emph{Requirements Engineering: Fundamentals, Principles, and Techniques}, 2.\textsuperscript{a} ed., Berlin--Heidelberg: Springer, 2025. ISBN: 978-3-662-69204-2.};
-\path[fill=white, rounded corners=0.15cm] (0.86,3.91) rectangle (15.15,5.15);
-\path[fill=wash, rounded corners=0.10cm] (1.03,4.09) rectangle (1.62,4.62);
-\node[anchor=north west,inner sep=0pt,text width=0.53cm,align=center,font={\fontsize{8.2}{10.3}\selectfont\bfseries},text=accent] at (1.06,4.21) {[2]};
-\node[anchor=north west,inner sep=0pt,text width=12.98cm,align=left,font={\fontsize{7.20}{9.70}\selectfont},text=ink] at (1.77,4.07) {S. Bühne, M. Glinz, H. van Loenhoud y S. Staal, \emph{IREB Certified Professional for Requirements Engineering --- Foundation Level Syllabus}, versión 3.3.0, IREB e.V., Karlsruhe, Alemania, 1 abr. 2026.};
-\path[fill=white, rounded corners=0.15cm] (0.86,5.27) rectangle (15.15,6.51);
-\path[fill=wash, rounded corners=0.10cm] (1.03,5.45) rectangle (1.62,5.98);
-\node[anchor=north west,inner sep=0pt,text width=0.53cm,align=center,font={\fontsize{8.2}{10.3}\selectfont\bfseries},text=accent] at (1.06,5.57) {[3]};
-\node[anchor=north west,inner sep=0pt,text width=12.98cm,align=left,font={\fontsize{7.90}{10.74}\selectfont},text=ink] at (1.77,5.43) {H. Washizaki (ed.), \emph{Guide to the Software Engineering Body of Knowledge (SWEBOK Guide)}, versión 4.0, Los Alamitos, California: IEEE Computer Society, 2024.};
-\path[fill=white, rounded corners=0.15cm] (0.86,6.63) rectangle (15.15,8.07);
-\path[fill=wash, rounded corners=0.10cm] (1.03,6.81) rectangle (1.62,7.34);
-\node[anchor=north west,inner sep=0pt,text width=0.53cm,align=center,font={\fontsize{8.2}{10.3}\selectfont\bfseries},text=accent] at (1.06,6.93) {[4]};
-\node[anchor=north west,inner sep=0pt,text width=12.98cm,align=left,font={\fontsize{7.90}{10.74}\selectfont},text=ink] at (1.77,6.79) {H. Cheng et al., ``Generative AI for requirements engineering: A systematic literature review'', \emph{Software: Practice and Experience}, vol. 56, n.º 2, pp. 141--170, 2026. DOI: \href{https://doi.org/10.1002/spe.70029}{10.1002/spe.70029}.};
+\node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ  /  ISR-401  /  AALM};
+\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {\insertframenumber};
+\node[anchor=north west,inner sep=0pt,text width=14.30cm,align=left,font={\fontsize{6.6}{8.1}\selectfont},text=ink] at (0.80,1.75) {[1] K. Pohl, \emph{Requirements Engineering: Fundamentals, Principles, and Techniques}, 2.\textsuperscript{a} ed. Berlin--Heidelberg, Alemania: Springer, 2025, ISBN: 978-3-662-69204-2.\\[3pt][2] S. Bühne y M. Glinz, \emph{IREB Certified Professional for Requirements Engineering --- Foundation Level Syllabus}, versión 3.3.0, informe técnico, International Requirements Engineering Board (IREB) e.V., Karlsruhe, Alemania, 1 abr. 2026.\\[3pt][3] H. Washizaki, ed., \emph{Guide to the Software Engineering Body of Knowledge (SWEBOK Guide)}, versión 4.0. Los Alamitos, CA, EE. UU.: IEEE Computer Society, 2024.\\[3pt][4] H. Cheng \emph{et al.}, ``Generative AI for requirements engineering: A systematic literature review'', \emph{Softw.: Pract. Exper.}, vol. 56, n.º 2, pp. 141--170, 2026, doi: 10.1002/spe.70029.\\[3pt][5] A. Stein, A. Mirzai, J. Axmann y T. Vietor, ``Integrating the capabilities offered by large language models into the requirements engineering process'', \emph{Digit. Eng.}, vol. 10, art. 100098, 2026, doi: 10.1016/j.dte.2026.100098.\\[3pt][6] M. Ozkaya, G. Kardas y M. A. Kose, ``An analysis of the features of requirements engineering tools'', \emph{Systems}, vol. 11, n.º 12, art. 576, 2023, doi: 10.3390/systems11120576.\\[3pt][7] A. Rozenberga y M. Kirikova, ``Enterprise model for requirements management: Evaluation of capability gaps in Jira and Marketplace applications'', en \emph{PoEM 2025 Companion Proc.}, CEUR Workshop Proc., vol. 4171, art. 69, 2025. [En línea]. Disponible: \url{https://ceur-ws.org/Vol-4171/paper_69.pdf}. Consultado: 21 nov. 2026.\\[3pt][8] J. Priya, ``Managing requirements \& improving quality: Project requirements management \& traceability'', TraceCloud, white paper, dic. 2020. [En línea]. Disponible: \url{https://www.tracecloud.com/GloreeJava2/documentation/whitePaperTraceCloud.pdf}. Consultado: 20 nov. 2026.};
+\node[anchor=north west,inner sep=0pt,text width=14.30cm,align=left,font={\fontsize{6.4}{7.8}\selectfont\itshape},text=muted] at (0.80,7.75) {Declaración de uso de IA: \usoIA};
 \end{scope}
 \end{tikzpicture}
-\note{Corrección bibliográfica [2] contrastada con la portada oficial del syllabus IREB 3.3.0, donde constan cuatro autores: Stan Bühne, Martin Glinz, Hans van Loenhoud y Stefan Staal. Referencias completas [1] a [4] según el archivo referencias.bib del informe. Incluyen los fundamentos de ingeniería de requisitos, el programa IREB, SWEBOK 4.0 y el estudio sobre IA generativa en requisitos.}
+\note{Estas son las ocho fuentes que usamos, en formato IEEE. Al pie declaramos el uso de IA. Quedamos atentos a sus preguntas.}
 \end{frame}
-
-\begin{frame}[plain]
-\begin{tikzpicture}[remember picture,overlay,x=1cm,y=-1cm]
-\begin{scope}[shift={(current page.north west)}]
-\path[use as bounding box] (0,0) rectangle (16,9);
-\fill[bg] (0,0) rectangle (16,9);
-\fill[accent] (0,0) rectangle (0.15,9);
-\fill[wash] (15.10,0.65) circle (0.80cm);
-\node[anchor=north west,inner sep=0pt,text width=12.00cm,align=left,font={\fontsize{6.37}{7.9}\selectfont\bfseries},text=accent] at (0.76,0.46) {10 / RESPALDO ACADÉMICO};
-\node[anchor=north west,inner sep=0pt,text width=14.50cm,align=left,font={\fontsize{16.42}{20.4}\selectfont\bfseries},text=ink] at (0.76,1.08) {Referencias bibliográficas};
-\node[anchor=north west,inner sep=0pt,text width=14.10cm,align=left,font={\fontsize{8.17}{10.1}\selectfont},text=muted] at (0.79,1.91) {Fuentes originales del informe · Referencias [5]--[8].};
-\draw[draw=linecol,line width=0.01cm] (0.77,8.48) -- (15.28,8.48);
-\node[anchor=north west,inner sep=0pt,text width=7.00cm,align=left,font={\fontsize{5.16}{6.4}\selectfont\bfseries},text=muted] at (0.78,8.61) {UTEQ / ISR-401 / AALM};
-\node[anchor=north west,inner sep=0pt,text width=0.50cm,align=right,font={\fontsize{5.83}{7.2}\selectfont\bfseries},text=muted] at (14.82,8.60) {16};
-\path[fill=white, rounded corners=0.15cm] (0.86,2.47) rectangle (15.15,3.62);
-\path[fill=wash, rounded corners=0.10cm] (1.03,2.65) rectangle (1.62,3.18);
-\node[anchor=north west,inner sep=0pt,text width=0.53cm,align=center,font={\fontsize{8.2}{10.3}\selectfont\bfseries},text=accent] at (1.06,2.77) {[5]};
-\node[anchor=north west,inner sep=0pt,text width=12.98cm,align=left,font={\fontsize{7.65}{10.40}\selectfont},text=ink] at (1.77,2.63) {A. Stein, A. Mirzai, J. Axmann y T. Vietor, ``Integrating the capabilities offered by large language models into the requirements engineering process'', \emph{Digital Engineering}, vol. 10, art. 100098, 2026. DOI: \href{https://doi.org/10.1016/j.dte.2026.100098}{10.1016/j.dte.2026.100098}.};
-\path[fill=white, rounded corners=0.15cm] (0.86,3.73) rectangle (15.15,4.88);
-\path[fill=wash, rounded corners=0.10cm] (1.03,3.91) rectangle (1.62,4.44);
-\node[anchor=north west,inner sep=0pt,text width=0.53cm,align=center,font={\fontsize{8.2}{10.3}\selectfont\bfseries},text=accent] at (1.06,4.03) {[6]};
-\node[anchor=north west,inner sep=0pt,text width=12.98cm,align=left,font={\fontsize{7.75}{10.54}\selectfont},text=ink] at (1.77,3.89) {M. Ozkaya, G. Kardas y M. A. Kose, ``An Analysis of the Features of Requirements Engineering Tools'', \emph{Systems}, vol. 11, n.º 12, art. 576, 2023. DOI: \href{https://doi.org/10.3390/systems11120576}{10.3390/systems11120576}.};
-\path[fill=white, rounded corners=0.15cm] (0.86,4.99) rectangle (15.15,6.73);
-\path[fill=wash, rounded corners=0.10cm] (1.03,5.17) rectangle (1.62,5.70);
-\node[anchor=north west,inner sep=0pt,text width=0.53cm,align=center,font={\fontsize{8.2}{10.3}\selectfont\bfseries},text=accent] at (1.06,5.29) {[7]};
-\node[anchor=north west,inner sep=0pt,text width=12.98cm,align=left,font={\fontsize{7.35}{10.00}\selectfont},text=ink] at (1.77,5.15) {A. Rozenberga y M. Kirikova, ``Enterprise Model for Requirements Management: Evaluation of Capability Gaps in Jira and Marketplace Applications'', en \emph{PoEM 2025: Companion Proceedings of the 18th IFIP Working Conference on the Practice of Enterprise Modeling}, CEUR Workshop Proceedings, vol. 4171, art. 69, 2025 (publicado en línea el 20 feb. 2026). Disponible en: \href{https://ceur-ws.org/Vol-4171/paper_69.pdf}{https://ceur-ws.org/Vol-4171/paper\_69.pdf}. Consultado: 21 nov. 2026.};
-\path[fill=white, rounded corners=0.15cm] (0.86,6.84) rectangle (15.15,8.16);
-\path[fill=wash, rounded corners=0.10cm] (1.03,7.02) rectangle (1.62,7.55);
-\node[anchor=north west,inner sep=0pt,text width=0.53cm,align=center,font={\fontsize{8.2}{10.3}\selectfont\bfseries},text=accent] at (1.06,7.14) {[8]};
-\node[anchor=north west,inner sep=0pt,text width=12.98cm,align=left,font={\fontsize{7.55}{10.27}\selectfont},text=ink] at (1.77,7.00) {J. Priya, \emph{Managing Requirements \& Improving Quality: Project Requirements Management \& Traceability}, TraceCloud, documento técnico (white paper), dic. 2020. Disponible en: \href{https://www.tracecloud.com/GloreeJava2/documentation/whitePaperTraceCloud.pdf}{https://www.tracecloud.com/GloreeJava2/documentation/whitePaperTraceCloud.pdf}. Consultado: 20 nov. 2026.};
-\end{scope}
-\end{tikzpicture}
-\note{Referencias completas [5] a [8] conforme a referencias.bib. La referencia [7] aporta la evaluación independiente de Jira y las aplicaciones de su Marketplace, y la [8] documenta las funciones de TraceCloud. Los DOI y enlaces están incorporados como hipervínculos.}
-\end{frame}
-
 \end{document}
