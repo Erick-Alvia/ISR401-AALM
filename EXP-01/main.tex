@@ -1,3 +1,88 @@
+\begin{filecontents*}{referencias.bib}
+@book{pohl2025,
+  author    = {Pohl, Klaus},
+  title     = {Requirements Engineering: Fundamentals, Principles, and Techniques},
+  edition   = {2},
+  publisher = {Springer},
+  address   = {Berlin, Heidelberg, Germany},
+  year      = {2025},
+  isbn      = {978-3-662-69204-2}
+}
+
+@techreport{buhne2026,
+  author      = {B{\"u}hne, Stan and Glinz, Martin},
+  title       = {{IREB} Certified Professional for Requirements Engineering --- Foundation Level Syllabus, Version 3.3.0},
+  type        = {Technical report},
+  institution = {International Requirements Engineering Board (IREB) e.V.},
+  address     = {Karlsruhe, Germany},
+  year        = {2026},
+  note        = {Released 2026-04-01}
+}
+
+@book{washizaki2024,
+  editor    = {Washizaki, Hironori},
+  title     = {Guide to the Software Engineering Body of Knowledge ({SWEBOK} Guide), Version 4.0},
+  publisher = {IEEE Computer Society},
+  address   = {Los Alamitos, CA, USA},
+  year      = {2024}
+}
+
+@article{ozkaya2023,
+  author  = {Ozkaya, Mert and Kardas, Geylani and Kose, Mehmet Alp},
+  title   = {An Analysis of the Features of Requirements Engineering Tools},
+  journal = {Systems},
+  volume  = {11},
+  number  = {12},
+  eid     = {576},
+  year    = {2023},
+  doi     = {10.3390/systems11120576}
+}
+
+@article{cheng2026,
+  author  = {Cheng, Haowei and Husen, Jati H. and Lu, Yijun and Racharak, Teeradaj and Yoshioka, Nobukazu and Ubayashi, Naoyasu and Washizaki, Hironori},
+  title   = {Generative {AI} for requirements engineering: A systematic literature review},
+  journal = {Software: Practice and Experience},
+  volume  = {56},
+  number  = {2},
+  pages   = {141--170},
+  year    = {2026},
+  doi     = {10.1002/spe.70029}
+}
+
+@article{stein2026,
+  author  = {Stein, Armin and Mirzai, Aksir and Axmann, Joachim and Vietor, Thomas},
+  title   = {Integrating the capabilities offered by large language models into the requirements engineering process},
+  journal = {Digital Engineering},
+  volume  = {10},
+  eid     = {100098},
+  year    = {2026},
+  doi     = {10.1016/j.dte.2026.100098}
+}
+
+@techreport{priya2020,
+  author      = {Priya, Jayati},
+  title       = {Managing Requirements \& Improving Quality: Project Requirements Management \& Traceability},
+  type        = {White paper},
+  institution = {TraceCloud},
+  year        = {2020},
+  month       = dec,
+  url         = {https://www.tracecloud.com/GloreeJava2/documentation/whitePaperTraceCloud.pdf},
+  urldate     = {2026-11-20}
+}
+@inproceedings{rozenberga2025,
+  author    = {Rozenberga, Agnese and Kirikova, Marite},
+  title     = {Enterprise Model for Requirements Management: Evaluation of Capability Gaps in {Jira} and Marketplace Applications},
+  booktitle = {PoEM 2025: Companion Proceedings of the 18th {IFIP} Working Conference on the Practice of Enterprise Modeling},
+  series    = {CEUR Workshop Proceedings},
+  volume    = {4171},
+  address   = {Geneva, Switzerland},
+  year      = {2025},
+  note      = {Paper 69. Published 2026-02-20},
+  url       = {https://ceur-ws.org/Vol-4171/paper_69.pdf},
+  urldate   = {2026-11-21}
+}
+\end{filecontents*}
+
 \documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -10,6 +95,9 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{seqsplit}
 
 \addbibresource{referencias.bib}
 
@@ -17,8 +105,6 @@
 \titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection.}{0.6em}{}
 \titlespacing*{\section}{0pt}{14pt}{6pt}
 \titlespacing*{\subsection}{0pt}{10pt}{4pt}
-
-\newcommand{\indic}[1]{\par\noindent{\small\itshape #1}\par\medskip}
 
 \begin{document}
 
@@ -48,7 +134,7 @@
         \textbf{Paralelo:} A\\[0.2cm]
         \textbf{Docente:} Gleiston Cicerón Guerrero Ulloa, PhD\\[0.2cm]
         \textbf{Modalidad:} Grupal\\[0.2cm]
-        \textbf{Fecha límite de entrega:} [fecha de la sesión de la semana 4]
+        \textbf{Fecha límite de entrega:} 21 de noviembre de 2026
     \end{flushleft}
     \vfill
     {\large Quevedo -- Ecuador}\\
@@ -112,7 +198,7 @@ Los interesados no siempre expresan de forma inmediata todo lo que saben sobre s
 Esta diferencia condiciona la elección de técnicas y herramientas de apoyo:
 \begin{itemize}
     \item \textbf{Conocimiento consciente:} corresponde a la información que los interesados reconocen con claridad y pueden formular de manera explícita, facilitando técnicas más directas y su registro estructurado \cite{pohl2025}.
-    \item \textbf{Conocimiento subconsciente e inconsciente:} abarca rutinas, supuestos o criterios operativos que los interesados aplican de forma habitual sin advertirlos o verbalizarlos espontáneamente al inicio, lo que exige técnicas de descubrimiento más contextuales o iterativas antes de consolidar los requisitos en un repositorio \cite{pohl2025} 
+    \item \textbf{Conocimiento subconsciente e inconsciente:} abarca rutinas, supuestos o criterios operativos que los interesados aplican de forma habitual sin advertirlos o verbalizarlos espontáneamente al inicio, lo que exige técnicas de descubrimiento más contextuales o iterativas antes de consolidar los requisitos en un repositorio \cite{pohl2025}.
 \end{itemize}
 
 \subsection{Gestión, trazabilidad e intercambio de requisitos (ReqIF)}
@@ -151,7 +237,7 @@ Las funcionalidades descritas corresponden a la información disponible en la do
 
 \subsection{Relación con el tipo de conocimiento que permite elicitar o gestionar}
 
-
+TraceCloud está diseñada para registrar, controlar y mantener la trazabilidad de información ya estructurada y explicitada, respondiendo fundamentalmente a la gestión del \textbf{conocimiento consciente} \cite{pohl2025,priya2020}. La herramienta no incluye técnicas directas de elicitación para extraer el \textbf{conocimiento subconsciente o inconsciente} de los interesados (tales como dinámicas de trabajo no verbalizadas, hábitos operativos de arrendamiento o criterios implícitos de convivencia) \cite{buhne2026}. Por consiguiente, es indispensable aplicar previamente entrevistas semiestructuradas, observaciones directas o talleres de análisis antes de volcar y articular dichos requisitos dentro del repositorio de TraceCloud \cite{pohl2025}.
 
 \section{Cuándo usar la herramienta}
 El uso de una herramienta especializada de gestión de requisitos como TraceCloud responde a las características, el tamaño y las exigencias de control del proyecto \cite{buhne2026,ozkaya2023}. Con base en la literatura de ingeniería de requerimientos y la documentación técnica de la plataforma, conviene emplear TraceCloud en las siguientes situaciones y condiciones:
@@ -235,27 +321,152 @@ Relación entre ambas & Disponible como aplicación en el Marketplace de Jira \c
 \end{itemize}
  
 
-
 \section{Ejemplo propio aplicado al caso de práctica}
-\indic{Presentar la demostración aplicada al caso de práctica del equipo. No se acepta un ejemplo copiado de la fuente.}
 
 \subsection{Contexto del caso}
-\indic{Describir el caso (sistema, actores y objetivo) sin incluir datos personales de terceros.}
+El proyecto seleccionado para el caso de práctica es \textbf{Fabro Arriendos}, un software destinado a la gestión integral de arriendos inmobiliarios en la ciudad de Quevedo. El sistema aborda las problemáticas identificadas mediante entrevistas semiestructuradas a propietarios y estudiantes foráneos:
+\begin{itemize}[noitemsep]
+    \item \textbf{Objetivo general:} Digitalizar y estructurar la oferta habitacional local para que estudiantes foráneos consulten disponibilidad, precios y reglas en tiempo real sin desplazamientos físicos innecesarios, dotando simultáneamente a los propietarios de herramientas financieras para el control de cobros, morosidad, prorrateo de servicios básicos y seguimiento de reparaciones.
+    \item \textbf{Actores principales (roles anonimizados):}
+    \begin{itemize}[noitemsep]
+        \item \textit{Propietario / Arrendador:} Administra propiedades y habitaciones, asigna inquilinos, registra pagos, controla egresos por mantenimiento y emite avisos.
+        \item \textit{Estudiante Foráneo / Inquilino:} Busca y filtra habitaciones disponibles, consulta reglas y garantías, adjunta comprobantes de pago y reporta incidencias de mantenimiento.
+        \item \textit{Administrador de Plataforma:} Verifica la veracidad de publicaciones y supervisa el orden operativo general.
+    \end{itemize}
+\end{itemize}
 
 \subsection{Demostración}
-\indic{Mostrar con figuras propias lo realizado en Tracecloud (capturas, requisitos, trazas) y explicar cada paso.}
+La demostración práctica en TraceCloud se ejecutó dentro del proyecto \texttt{FabroArriendos} utilizando la plantilla \textit{Generic} y siguiendo la secuencia operativa documentada en la carpeta \texttt{Evidencias/}:
+
+\begin{enumerate}
+    \item \textbf{Creación del proyecto y estructura de carpetas:} Se creó el proyecto \texttt{FabroArriendos} y se organizaron sus artefactos dentro de las carpetas jerárquicas \texttt{Business Requirements} (\texttt{Client A(Propietario)} y \texttt{Client B(Inquilino)}), \texttt{Functional Requirements} (\texttt{Feature X(RF)}, \texttt{Feature Y(RF)} y \texttt{Feature Z(RF)}) y \texttt{Test Cases}, habilitando las herramientas de seguimiento, reportes y análisis de trazas (Figura~\ref{fig:cap01}).
+    \item \textbf{Registro de requisitos de negocio y funcionales:} A partir de los hallazgos de las entrevistas, se registraron en \texttt{Business Requirements/Client A} las historias de usuario \texttt{BR-1} (\texttt{HU-01}), \texttt{BR-2} (\texttt{HU-02}), \texttt{BR-3} (\texttt{HU-05}) y \texttt{BR-4} (\texttt{HU-06}) (Figura~\ref{fig:cap02}), y en \texttt{Functional Requirements/Feature X} los requisitos funcionales \texttt{FR-1} (\texttt{RF-01}) a \texttt{FR-4} (\texttt{RF-04}) (Figura~\ref{fig:cap03}). La Tabla~\ref{tab:requisitos_fabro} sintetiza estos artefactos.
+    \item \textbf{Establecimiento de trazabilidad bidireccional (\emph{Org Chart}):} Mediante el módulo \textit{Traceability Charts} (\textit{Org Chart}), se estableció la relación ascendente (\textit{Traces Up To}) desde \texttt{FR-1} (\texttt{RF-01: Catálogo y búsqueda filtrada}) hacia \texttt{BR-1} (\texttt{HU-01: Búsqueda filtrada de habitaciones disponibles}) y la vinculación descendente con los casos de prueba \texttt{TC-1} y \texttt{TC-2} (Figura~\ref{fig:cap04}).
+    \newpage
+    \item \textbf{Prueba de análisis de impacto (\emph{Suspect Trace}):} Para comprobar la detección automática de cambios, se editó la especificación de \texttt{BR-1} (\texttt{HU-01}), provocando que TraceCloud marcara la relación con alerta roja \texttt{SUSPECT} (\emph{Suspect trace --- needs re-review}), indicando al equipo que debe revisar la coherencia de los elementos vinculados (Figura~\ref{fig:cap05}).
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{Requisitos de Fabro Arriendos registrados y trazados en TraceCloud.}
+\label{tab:requisitos_fabro}
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{1.2cm} p{2.2cm} >{\raggedright\arraybackslash}X p{2.4cm}@{}}
+\toprule
+ID & Carpeta / Tipo & Descripción / Criterio registrado & Trazabilidad \\
+\midrule
+BR-1 & Business Req. / Client A & \textbf{HU-01:} Búsqueda filtrada de habitaciones disponibles por precio, comodidades y servicios. & Origen de FR-1 \\
+BR-2 & Business Req. / Client A & \textbf{HU-02:} Consulta transparente de ficha detallada, reglas de convivencia y condiciones de garantía. & Origen de FR-2 \\
+BR-3 & Business Req. / Client A & \textbf{HU-05:} Respaldo y consulta de comprobantes de pago de arriendo y garantía. & Origen de FR-4 \\
+BR-4 & Business Req. / Client A & \textbf{HU-06:} Reporte y seguimiento de daños o fallas en habitación y áreas comunes. & Origen de FR-3 \\
+FR-1 & Functional Req. / Feature X & \textbf{RF-01:} Catálogo y búsqueda filtrada de habitaciones activas por precio, servicios y disponibilidad. & Trazado a BR-1; verificado por TC-1, TC-2 \\
+FR-2 & Functional Req. / Feature X & \textbf{RF-02:} Ficha transparente con precio base, depósito, reglas de convivencia y sector. & Trazado a BR-2 \\
+FR-3 & Functional Req. / Feature X & \textbf{RF-03:} Gestión de propiedades, habitaciones, asignación de inquilinos y estados de ocupación. & Trazado a BR-4 \\
+FR-4 & Functional Req. / Feature X & \textbf{RF-04:} Registro de cobros mensuales, prorrateo de servicios básicos y balance financiero. & Trazado a BR-3 \\
+TC-1 & Test Cases & \textbf{TC-01:} Caso de prueba de verificación asociado al filtrado del catálogo de habitaciones. & Trazado a FR-1 \\
+TC-2 & Test Cases & \textbf{TC-02:} Caso de prueba de verificación asociado al comportamiento del módulo vinculado. & Trazado a FR-1 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\linewidth]{Evidencias/TraceCloud-CAP-01.png}
+    \caption{Panel principal del proyecto \texttt{FabroArriendos} en TraceCloud con el árbol de carpetas y herramientas de trazabilidad.}
+    \label{fig:cap01}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\linewidth]{Evidencias/TraceCloud-CAP-02.png}
+    \caption{Historias de usuario (\texttt{BR-1} a \texttt{BR-4}) registradas en \texttt{Business Requirements/Client A}.}
+    \label{fig:cap02}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\linewidth]{Evidencias/TraceCloud-CAP-03.png}
+    \caption{Requisitos funcionales (\texttt{FR-1} a \texttt{FR-4}) registrados en \texttt{Functional Requirements/Feature X}.}
+    \label{fig:cap03}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\linewidth]{Evidencias/TraceCloud-CAP-04.png}
+    \caption{Gráfico de trazabilidad (\texttt{Traceability Charts}) con \texttt{FR-1} como elemento focal trazado hacia \texttt{BR-1} y los casos de prueba \texttt{TC-1} y \texttt{TC-2}.}
+    \label{fig:cap04}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\linewidth]{Evidencias/TraceCloud-CAP-05.png}
+    \caption{Detección de impacto en TraceCloud con alerta \texttt{SUSPECT} (\emph{Suspect trace --- needs re-review}) sobre \texttt{BR-1} tras editar su descripción.}
+    \label{fig:cap05}
+\end{figure}
 
 \subsection{Artefactos y evidencia en el repositorio}
-\indic{Indicar las rutas de los artefactos en el repositorio y el manifiesto de evidencias (nombre, fecha, duración y SHA-256).}
+Las capturas de pantalla generadas durante la demostración en TraceCloud se encuentran almacenadas en la carpeta \texttt{Evidencias/} del repositorio institucional sin exponer datos personales de terceros, conforme a la siguiente estructura:
 
-\section{Conclusiones}
-\indic{Redactar conclusiones que se deriven de lo realizado y de lo analizado, evitando las genéricas.}
+\begin{quote}
+\ttfamily\small
+ISR401-AALM/\\
+|-- main.tex\\
+|-- referencias.bib\\
+|-- main.pdf\\
+|-- README.md\\
++-- Evidencias/\\
+    |-- TraceCloud-CAP-01\_2.jpg\\
+    |-- TraceCloud-CAP-02\_2.png\\
+    |-- TraceCloud-CAP-03\_2.png\\
+    |-- TraceCloud-CAP-04\_2.png\\
+    +-- TraceCloud-CAP-05.png
+\end{quote}
+
+La Tabla~\ref{tab:manifiesto} presenta el manifiesto de las evidencias gráficas incluidas en la carpeta \texttt{Evidencias/} del repositorio. Antes del cierre de la entrega se debe completar la columna \textbf{SHA-256} con el resumen criptográfico calculado localmente sobre cada archivo.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\caption{Manifiesto de evidencias almacenadas en \texttt{Evidencias/}.}
+\label{tab:manifiesto}
+\begin{tabularx}{\textwidth}{@{}p{3.3cm} p{2.0cm} c c >{\ttfamily\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Archivo} & \textbf{Ruta Repositorio} & \textbf{Fecha} & \textbf{Duración} & \textbf{SHA-256 (Resumen)} \\
+\midrule
+TraceCloud-CAP-01.png & Evidencias/ & 21/11/2026 & N/A & \seqsplit{2700cf521b56027b334554025081e77e4d3fba60621eb93284fbea68469e656a} \\
+TraceCloud-CAP-02.png & Evidencias/ & 21/11/2026 & N/A & \seqsplit{35650fda0ca2bce6ea00465efe8f346d7898f9737fca9e9b719fdf0d084dbdc8} \\
+TraceCloud-CAP-03.png & Evidencias/ & 21/11/2026 & N/A & \seqsplit{23ee60d1f9428b5c8a332c75a17086d696160da99df31ce6b1b84a30ed23f86e} \\
+TraceCloud-CAP-04.png & Evidencias/ & 21/11/2026 & N/A & \seqsplit{941889856564c2edb7ac6a72fc609dfe183ce9b134e49bc95b1612b7f0469694} \\
+TraceCloud-CAP-05.png & Evidencias/ & 21/11/2026 & N/A & \seqsplit{2f77621c4e4460c2f0edcb0a5ac7aabec8e89d23158477be392e21c2f699a5d4} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Conclusion}
+TraceCloud se presenta como una herramienta eficiente para la gestión y trazabilidad de requisitos de software, ya que permite centralizar la información y reducir los riesgos de pérdida de datos o desactualización que pueden surgir al utilizar documentos separados de Word y Excel. Su funcionalidad de trazas sospechosas (Suspect Traces) resulta especialmente útil en el proyecto Fabro Arriendos, porque permite identificar automáticamente los elementos relacionados que deben revisarse cuando se realiza algún cambio en los requisitos. Además, facilita el control, la aprobación y la visualización de las relaciones entre requisitos. Sin embargo, es importante reconocer que esta herramienta no sustituye las técnicas de elicitación, como las entrevistas, necesarias para identificar las necesidades reales de propietarios y estudiantes antes de documentarlas en el sistema.
+
 
 \section{Declaración de uso de inteligencia artificial}
-Se utilizó Claude (Anthropic), versión Claude Sonnet 5.5, para proponer la estructura inicial del documento, organizar sus apartados y corregir errores en el código LaTex y durante la compilación. Por otra parte, se empleó ChatGPT (OpenAI), versión GPT-6, para mejorar la redacción, corregir problemas de claridad y coherencia y eliminar redundancias. El equipo revisó las sugerencias de ambas herramientas, verificó las citas con las fuentes originales y comprobó el código mediante la compilación del documento.
+Se utilizó Claude (Anthropic), versión Claude Sonnet 3.5, para proponer la estructura inicial del documento, organizar sus apartados y corregir errores en el código LaTeX y durante la compilación. Por otra parte, se empleó ChatGPT (OpenAI), versión GPT-4o, y Gemini (Google) para mejorar la redacción, estructurar las figuras de evidencia de TraceCloud y revisar la coherencia frente a la guía de evaluación. El equipo revisó las sugerencias de las herramientas, verificó las citas con las fuentes originales y comprobó el código mediante la compilación del documento.
 
 \section{Aportes por integrante}
-\indic{Elaborar una tabla con las columnas Integrante y Aportes verificables (archivos, secciones, artefactos); sirve para la calificación individual.}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Distribución verificable de aportes por integrante del grupo.}
+\label{tab:aportes}
+\begin{tabularx}{\textwidth}{@{}p{4.5cm} X@{}}
+\toprule
+\textbf{Integrante} & \textbf{Aportes Verificables} \\
+\midrule
+Aldas Zambrano Alan Andrés & Redacción del marco conceptual (Sección 3), investigación bibliográfica y tabla comparativa con Jira (Sección 7.3). \\
+Alvia Villegas Erick Adalberto & Elicitación de preguntas para entrevistas, modelado de Historias de Usuario, desarrollo del caso práctico \textit{Fabro Arriendos} en TraceCloud (Sección 8) y generación del manifiesto de evidencias. \\
+Llerena Abril Angelina Julexy & Análisis cualitativo de funciones de TraceCloud (Sección 4), ventajas, limitaciones y redacción de conclusiones (Sección 7 y 9). \\
+Moran Pilaguano Frixon Fernando & Configuración y compilación del documento LaTeX, estructuración de pasos de aplicación (Sección 6) y publicación de artefactos en el repositorio Git. \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \printbibliography[title={Referencias}]
 
