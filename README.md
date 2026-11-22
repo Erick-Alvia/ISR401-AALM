@@ -32,7 +32,7 @@ Ejemplo:
 esto permitirá que al compilar pueda detectar la carpeta y el archivo .tex donde se generara el pdf
 
 En Overleaf: abrir el proyecto, seleccionar `EXP-01/main.tex` y pulsar Recompile.
-En local, desde la raíz del repositorio:
+Ejemplo en local, desde la raíz del repositorio:
 
 ```
 cd C:\Users\GAMEMAX\OneDrive\Documentos\00_Git\ISR401-AALM\EXP-01
