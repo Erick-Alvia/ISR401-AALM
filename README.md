@@ -5,13 +5,14 @@ Diapositivas de la exposición GA-SUM-02 (ISR-401, UTEQ): TraceCloud, gestión y
 ## Estructura
 
 ```
-EXP-01/
-├── Evidencias/
-│   └── TraceCloud-CAP-01.png a TraceCloud-CAP-05.png
-├── main.tex
-├── main.pdf
-├── referencias.bib
-└── Readme.md
+ISR401-AALM/
+├── README.md
+└── EXP-01/
+    ├── Evidencias/
+    │   └── TraceCloud-CAP-01.png a TraceCloud-CAP-05.png
+    ├── main.tex
+    ├── main.pdf
+    └── referencias.bib
 ```
 
 ## Compilación
@@ -23,8 +24,8 @@ EXP-01/
 * Figuras: las capturas están en `EXP-01/Evidencias/` y deben quedar junto a `main.tex`.
 * No usa BibTeX: la lista de referencias IEEE está escrita en las diapositivas finales y coincide con `referencias.bib`.
 
-En Overleaf: abrir el proyecto, seleccionar `main.tex` y pulsar Recompile.
-En local:
+En Overleaf: abrir el proyecto, seleccionar `EXP-01/main.tex` y pulsar Recompile.
+En local, desde la raíz del repositorio:
 
 ```
 cd EXP-01
@@ -32,7 +33,7 @@ pdflatex main.tex
 pdflatex main.tex
 ```
 
-Se compila dos veces para que la numeración y los enlaces queden correctos. El resultado es `main.pdf`.
+Se compila dos veces para que la numeración y los enlaces queden correctos. El resultado es `EXP-01/main.pdf`.
 
 ## Evidencias y datos personales
 
@@ -40,4 +41,4 @@ Las capturas de `Evidencias/` son del proyecto FabroArriendos creado en TraceClo
 
 ## Uso de IA
 
-La declaración (herramienta, versión, propósito y verificación) está en la diapositiva de síntesis de `main.tex`.
+La declaración (herramienta, versión, propósito y verificación) está en la diapositiva de síntesis de `EXP-01/main.tex`.
