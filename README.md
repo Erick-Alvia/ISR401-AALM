@@ -35,7 +35,7 @@ En Overleaf: abrir el proyecto, seleccionar `EXP-01/main.tex` y pulsar Recompile
 En local, desde la raíz del repositorio:
 
 ```
-cd EXP-01
+cd C:\Users\GAMEMAX\OneDrive\Documentos\00_Git\ISR401-AALM\EXP-01
 pdflatex main.tex
 pdflatex main.tex
 ```
